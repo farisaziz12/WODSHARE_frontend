@@ -40,7 +40,7 @@ class App extends React.Component {
             <LoginForm onSuccess={this.setUser} setError = {this.state.loginError} handleLogin = {this.setUser} user = {this.state.user}/>
         </Route>
         <Route exact path = '/'> 
-          <Hompage/>
+          {this.state.user? <Hompage/> : <Redirect to="/login" />}
         </Route>
       </Switch>
       </>
