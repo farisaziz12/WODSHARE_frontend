@@ -42,7 +42,10 @@ class CreateAccountForm extends Component {
                         password: password,
                         email: email
                     }
-                })
+                }).then(this.setState({success: true}))
+                .then(user => 
+                    setTimeout(() => {this.props.onSuccess(user)}, 3000)
+                )
             } else if (this.state.account_type === "Athlete") {
                 API.createAthleteAccount({
                     athlete: {
@@ -51,7 +54,11 @@ class CreateAccountForm extends Component {
                         password: password,
                         email: email
                     }
-                }).then(this.setState({success: true}))
+                })
+                .then(this.setState({success: true}))
+                .then(user => 
+                    setTimeout(() => {this.props.onSuccess(user)}, 3000)
+                )
             }
 
         } else {

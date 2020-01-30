@@ -44,7 +44,7 @@ class LoginForm extends Component {
                             <Segment>
                                 {activeItem === "Athlete Login" && <AthleteLogin onSuccess={this.props.onSuccess}/>} 
                                 {activeItem === "Coach Login" && <CoachLogin onSuccess={this.props.onSuccess}/>}
-                                {activeItem === "Create Account" && <CreateAccountForm/>}
+                                {activeItem === "Create Account" && <CreateAccountForm onSuccess={this.props.onSuccess}/>}
                             </Segment>
                         </Grid.Column>
                     </Grid>
