@@ -3,14 +3,18 @@ import API from './API.js';
 import './App.css';
 import { useHistory, BrowserRouter as Router, Route, Link, Switch, Redirect } from 'react-router-dom'
 import LoginForm from './MainComponents/LoginForm';
-import Hompage from './MainComponents/Hompage.js';
+import AthleteHompage from './MainComponents/AthleteHompage.js';
+import GuestHompage from './MainComponents/GuestHomepage.js';
+import CoachHompage from './MainComponents/CoachHomepage.js';
+import Navbar from './MainComponents/Navbar.js';
 
 
 class App extends React.Component {
 
   state = {
     user: null,
-    loginError: false
+    loginError: false,
+    homepage: "guest"
   }
 
   componentDidMount(){
@@ -23,12 +27,13 @@ class App extends React.Component {
   }
 
   setUser = (user) => {
-    this.setState({user: user})
+    this.setState({user: user, homepage: user.account_type})
   }
 
    logout = () => {
     this.setState({user: undefined})
     API.clearToken();
+    this.setState({homepage: "guest"})
   }
 
 
@@ -37,8 +42,22 @@ class App extends React.Component {
       <>
       <Switch>
         <Route exact path = '/'> 
-          {this.state.user? <Hompage/> : <Redirect to="/login" />}
-          {/* {console.log(this.state.user)} */}
+          <Navbar logout={this.logout} user={this.state.user}/>
+          {this.state.homepage === "guest"?
+           <GuestHompage/>
+           :
+           undefined
+          }
+          {this.state.homepage === "athlete"?
+           <AthleteHompage user={this.state.user}/>
+           :
+           undefined
+          }
+          {this.state.homepage === "coach"?
+           <CoachHompage/>
+           :
+           undefined
+          }
         </Route>
         <Route exact path = '/login'>
             <LoginForm onSuccess={this.setUser} setError = {this.state.loginError} handleLogin = {this.setUser} user = {this.state.user}/>

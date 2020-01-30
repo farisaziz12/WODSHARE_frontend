@@ -5,6 +5,7 @@ import './loginForm.css'
 import AthleteLogin from '../AthleteComponents.js/AthleteLogin';
 import CoachLogin from '../CoachComponents.js/CoachLogin';
 import CreateAccountForm from './CreateAccountForm';
+import Navbar from './Navbar';
 
 
 class LoginForm extends Component {
@@ -19,6 +20,7 @@ class LoginForm extends Component {
         if (this.props.user) return <Redirect to="/"/>;
         return (
             <div className="container">
+                    <Navbar/>
                     <Grid textAlign='center' style={{ height: '100vh', width: '1200px' }} verticalAlign='middle'>
                         <Grid.Column width={4}>
                         <Menu fluid vertical tabular>

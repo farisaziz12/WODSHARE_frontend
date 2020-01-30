@@ -1,15 +1,15 @@
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
 import React, { Component } from 'react';
 
-class Hompage extends Component {
+class CoachHompage extends Component {
     state = {  }
     render() {
         return (
-            <>
-            <h1>Homepage</h1>
+            <><br/><br/><br/><br/>
+            <h1>Coach Homepage</h1>
             </>
         );
     }
 }
 
-export default Hompage;
+export default CoachHompage;
