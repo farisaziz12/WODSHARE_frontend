@@ -9,7 +9,7 @@ import Hompage from './MainComponents/Hompage.js';
 class App extends React.Component {
 
   state = {
-    user: undefined,
+    user: null,
     loginError: false
   }
 
@@ -36,11 +36,12 @@ class App extends React.Component {
     return (
       <>
       <Switch>
-        <Route path = '/login'>
-            <LoginForm onSuccess={this.setUser} setError = {this.state.loginError} handleLogin = {this.setUser} user = {this.state.user}/>
-        </Route>
         <Route exact path = '/'> 
           {this.state.user? <Hompage/> : <Redirect to="/login" />}
+          {/* {console.log(this.state.user)} */}
+        </Route>
+        <Route exact path = '/login'>
+            <LoginForm onSuccess={this.setUser} setError = {this.state.loginError} handleLogin = {this.setUser} user = {this.state.user}/>
         </Route>
       </Switch>
       </>

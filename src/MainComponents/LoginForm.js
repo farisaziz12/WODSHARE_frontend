@@ -1,50 +1,57 @@
 import React, { Component } from 'react';
 import {Link, Redirect} from "react-router-dom"
-import { Button, Form } from 'semantic-ui-react'
-import API from '../API';
+import { Grid, Menu, Segment } from 'semantic-ui-react'
+import './loginForm.css'
+import AthleteLogin from '../AthleteComponents.js/AthleteLogin';
+import CoachLogin from '../CoachComponents.js/CoachLogin';
+import CreateAccountForm from './CreateAccountForm';
 
 
 class LoginForm extends Component {
     state = { 
-        email: undefined, 
-        password: undefined
+        activeItem: "Athlete Login"
      }
 
-     handleChange = e => {
-        this.setState({
-            [e.target.name]: e.target.value
-        })
-     }
-
-     handleSubmit = () => {
-        API.loginUser({
-            email: this.state.email,
-            password: this.state.password
-        }).then(user => this.props.onSuccess(user))
-     }
+     handleItemClick = (e, { name }) => this.setState({ activeItem: name })
 
     render() {
+        const { activeItem } = this.state
         if (this.props.user) return <Redirect to="/"/>;
-        const { email, password } = this.state
         return (
-            <>
-                <Form onSubmit={this.handleSubmit}>
-                    <h1>Sign in or <Link to="/signup">Create an account</Link> </h1>
-                    <Form.Field>
-                        <label>Email</label>
-                        <input type = "text" name = "email" value = {email} onChange = {this.handleChange}></input>
-                    </Form.Field>
-                    <Form.Field>
-                        <label>Password</label>
-                        <input type = "password" name = "password" value = {password} onChange = {this.handleChange}></input>
-                    </Form.Field>
-                    <Form.Field>
-                    </Form.Field>
-                        <Button type='submit'>Log in</Button>
-                </Form>
-        </>
+            <div className="container">
+                    <Grid textAlign='center' style={{ height: '100vh', width: '1200px' }} verticalAlign='middle'>
+                        <Grid.Column width={4}>
+                        <Menu fluid vertical tabular>
+                            <Menu.Item
+                            name='Athlete Login'
+                            active={activeItem === 'Athlete Login'}
+                            onClick={this.handleItemClick}
+                            />
+                            <Menu.Item
+                            name='Coach Login'
+                            active={activeItem === 'Coach Login'}
+                            onClick={this.handleItemClick}
+                            />
+                            <Menu.Item
+                            name='Create Account'
+                            active={activeItem === 'Create Account'}
+                            onClick={this.handleItemClick}
+                            />
+                        </Menu>
+                        </Grid.Column>
+
+                        <Grid.Column stretched width={12}>
+                            <Segment>
+                                {activeItem === "Athlete Login" && <AthleteLogin onSuccess={this.props.onSuccess}/>} 
+                                {activeItem === "Coach Login" && <CoachLogin onSuccess={this.props.onSuccess}/>}
+                                {activeItem === "Create Account" && <CreateAccountForm/>}
+                            </Segment>
+                        </Grid.Column>
+                    </Grid>
+            </div>
         );
     }
 }
 
 export default LoginForm;
+
