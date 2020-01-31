@@ -11,21 +11,21 @@ class Navbar extends Component {
              <header id="nav-wrapper">
                 <nav id="nav">
                 <NavLink to='/'>   
-                    <div class="nav left">
-                        <span class="gradient skew">
-                            <h1 class="logo un-skew">WODSHARE</h1>
+                    <div className="nav left">
+                        <span className="gradient skew">
+                            <h1 className="logo un-skew">WODSHARE</h1>
                         </span>
                     </div>
                 </NavLink>
-                <div class="nav right">
-                    <NavLink className="nav-link " exact to="/"><span class="nav-link-span"><span class="u-nav">Home</span></span></NavLink>
+                <div className="nav right">
+                    <NavLink className="nav-link " exact to="/"><span className="nav-link-span"><span className="u-nav">Home</span></span></NavLink>
                     { this.props.user? 
-                        <a onClick={this.props.logout} class="nav-link"><span class="nav-link-span"><span class="u-nav">Logout</span></span></a>
+                        <a onClick={this.props.logout} className="nav-link"><span className="nav-link-span"><span className="u-nav">Logout</span></span></a>
                         :
-                        <NavLink className="nav-link " exact to="/login"><span class="nav-link-span"><span class="u-nav">Login/Sign Up</span></span></NavLink>
+                        <NavLink className="nav-link " exact to="/login"><span className="nav-link-span"><span className="u-nav">Login/Sign Up</span></span></NavLink>
                     }
-                    <a href="#work" class="nav-link"><span class="nav-link-span"><span class="u-nav">Work</span></span></a>
-                    <a href="#contact" class="nav-link"><span class="nav-link-span"><span class="u-nav">Contact</span></span></a>
+                    <a href="#work" className="nav-link"><span className="nav-link-span"><span className="u-nav">Work</span></span></a>
+                    <a href="#contact" className="nav-link"><span className="nav-link-span"><span className="u-nav">Contact</span></span></a>
                 </div>
                 </nav>
             </header>

@@ -88,7 +88,7 @@ class CreateAccountForm extends Component {
                     <input placeholder="bobbythebuilder@gmail.com" type = "text" name = "email" value = {email} onChange = {this.handleChange}></input>
                 </Form.Field>
                 <Form.Field required>
-                    {password_error? <h3 >Passwords do not match!</h3> : undefined}
+                    {password_error? <h3 className="h3" >Passwords do not match!</h3> : undefined}
                     <label>Password</label>
                     <input type = "password" name = "password" value = {password} onChange = {this.handleChange}></input>
                 </Form.Field>
