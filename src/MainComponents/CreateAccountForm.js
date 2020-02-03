@@ -23,10 +23,8 @@ class CreateAccountForm extends Component {
         })
      }
 
-     handleAccountTypeChange = e => {
-         if (e.target.querySelector("span").textContent) {
-            this.setState({account_type: e.target.querySelector("span").textContent})
-         }
+     handleAccountTypeChange = (e, {value}) => {
+            this.setState({account_type: value})
      }
 
      handleSubmit = () => {

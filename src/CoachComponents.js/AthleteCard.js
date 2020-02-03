@@ -4,7 +4,7 @@ import { Button, Card } from 'semantic-ui-react'
 class AthleteCard extends Component {
 
     render() {
-        const { first_name, last_name, id } = this.props
+        const { first_name, last_name, id, email } = this.props
         return (
             <Card>
                 <Card.Content>
@@ -19,7 +19,7 @@ class AthleteCard extends Component {
                     <Button onClick={() => this.props.handleAthlete(id)} basic color='green'>
                         Assign Workout
                     </Button>
-                    <Button basic color='red'>
+                    <Button basic color='red' onClick={`mailto:${email}`}>
                         Contact
                     </Button>
                     </div>

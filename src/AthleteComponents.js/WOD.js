@@ -1,11 +1,20 @@
 import React, { Component } from 'react';
-import { Image, Reveal } from 'semantic-ui-react'
+import { Button } from 'semantic-ui-react'
 import './WOD.css'
+import PopUpScoreSubmit from './PopUpScoreSubmit';
 
 class WOD extends Component {
-    state = {  }
+    state = { 
+        displayForm: false
+     }
+
+     handleClick = () => {
+         this.setState({
+             displayForm: !this.state.displayForm
+         })
+     }
     render() {
-        const { name, workout, category, score } = this.props.workout
+        const { id, name, workout, category, score } = this.props.workout
         return (
             <>
                 <div className="shade">
@@ -20,6 +29,8 @@ class WOD extends Component {
                     </div>
                     </div>
                 </div>
+                <Button onClick={this.handleClick}>Submit Score</Button>
+                    {this.state.displayForm? <PopUpScoreSubmit WODID={id} handleClick={this.handleClick}/> : undefined} 
             </>
         );
     }

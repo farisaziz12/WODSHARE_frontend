@@ -56,7 +56,7 @@ class CoachHompage extends Component {
                     </Grid.Column>
                     <Grid.Column>
                         {this.state.athleteBeingProgrammedFor &&
-                            <AssignWorkoutForm athleteName={this.state.athleteBeingProgrammedFor.first_name} athleteID={this.state.athleteBeingProgrammedFor.id}/>
+                            <AssignWorkoutForm coachID={this.props.user.id} athleteName={this.state.athleteBeingProgrammedFor.first_name} athleteID={this.state.athleteBeingProgrammedFor.id}/>
                         }
                     </Grid.Column>
                     </Grid.Row>

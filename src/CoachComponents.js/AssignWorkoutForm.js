@@ -4,24 +4,52 @@ import {  Grid, Form, Message, Select, Button} from 'semantic-ui-react'
 class AssignWorkoutForm extends Component {
     state = { 
         success: false, 
-        workout: {
-            name: null, 
-            wod_type: null, 
-            category: null, 
-            date: null, 
-            workout: null,
-            athlete: this.props.athleteID
-        }
+        name: null, 
+        wod_type: null, 
+        category: null, 
+        date: null, 
+        workout: null,
+        athlete: this.props.athleteID
+    
      }
 
 
      handleChange = e => {
         this.setState({
-            workout: {
-                [e.target.name]: e.target.value
-            }
+           [e.target.name]: e.target.value
         })
      }
+
+     handleTypeChange = (e, {value}) => {
+           this.setState({wod_type: value})
+        
+    }
+
+    handleCategoryChange = (e, {value}) => {
+        this.setState({category: value})
+    }
+
+    handleSubmit = () => {
+        const { name, wod_type, category, date, workout, athlete } = this.state
+        fetch('http://localhost:3000/workouts', {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                "Accept": "application/json"
+            },
+            body: JSON.stringify({
+                workout: {
+                    name: name, 
+                    wod_type: wod_type, 
+                    category: category,
+                    date: date,
+                    workout: workout, 
+                    athlete_id: athlete, 
+                    coach_id: this.props.coachID
+                }
+            })
+        }).then(this.setState({name: "", wod_type: "", date: "", category: "", workout: ""}))
+    }
 
 
     render() {
@@ -38,7 +66,7 @@ class AssignWorkoutForm extends Component {
             { key: 't', text: 'Triplet', value: 'Triplet' },
             {key: 'h', text: 'Hypertrophy', value: 'Hypertrophy' },
             {key: 'm', text: 'Muscular Endurance', value: 'Muscular Endurance' }]
-        const { name, wod_type, category, date, workout } = this.state.workout
+        const { name, wod_type, category, date, workout } = this.state
         return (
             <Grid>
                 <Grid.Row centered>
@@ -49,8 +77,10 @@ class AssignWorkoutForm extends Component {
                                 <label>Name</label>
                                 <input placeholder="Fran" type = "text" name = "name" value = {name} onChange = {this.handleChange}></input>
                             </Form.Field>
-                            <Form.Select required  name='category' fluid label='Category' placeholder='Gymnastics' options={categoryOptions} value={category} onChange = {this.handleChange}/>
-                            <Form.Select required name='type' fluid label='Type' placeholder='Couplet' options={typeOptions} value={wod_type} onChange = {this.handleChange}/>
+                            <Form.Select onChange={this.handleCategoryChange} required  name='category' fluid label='Category' placeholder='Gymnastics' options={categoryOptions} value={category} />
+                            
+                            <Form.Select onChange={this.handleTypeChange} required name='type' fluid label='Type' placeholder='Couplet' options={typeOptions} value={wod_type} />
+                            
                             <Form.Field required>
                                 <label>Date</label>
                                 <input type = "date" name = "date" value = {date} onChange = {this.handleChange}></input>
@@ -65,7 +95,7 @@ class AssignWorkoutForm extends Component {
                             :
                             undefined
                         }
-                            <Button type='submit'>Create Workout</Button>
+                            <Button onSubmit={this.handleSubmit} type='submit'>Create Workout</Button>
                     </Form>
                 </Grid.Column>
             </Grid.Row>

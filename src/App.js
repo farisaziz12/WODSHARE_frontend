@@ -7,6 +7,7 @@ import AthleteHompage from './MainComponents/AthleteHompage.js';
 import GuestHompage from './MainComponents/GuestHomepage.js';
 import CoachHompage from './MainComponents/CoachHomepage.js';
 import Navbar from './MainComponents/Navbar.js';
+import MovementBank from './MainComponents/MovementBank.js';
 
 
 class App extends React.Component {
@@ -61,6 +62,10 @@ class App extends React.Component {
         </Route>
         <Route exact path = '/login'>
             <LoginForm onSuccess={this.setUser} setError = {this.state.loginError} handleLogin = {this.setUser} user = {this.state.user}/>
+        </Route>
+        <Route exact path = '/movements'>
+          <Navbar logout={this.logout} user={this.state.user}/>
+           <MovementBank/>
         </Route>
       </Switch>
       </>
