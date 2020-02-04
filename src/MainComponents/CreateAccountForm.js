@@ -7,14 +7,15 @@ import './CreateAccountForm.css'
 
 class CreateAccountForm extends Component {
     state = { 
-        first_name: undefined, 
-        last_name: undefined, 
-        email: undefined, 
-        account_type: undefined,
-        password: undefined, 
-        password_confirmation: undefined,
+        first_name: null, 
+        last_name: null, 
+        email: null, 
+        account_type: null,
+        password: null, 
+        password_confirmation: null,
         password_error: false, 
-        success: false
+        success: false, 
+        error: null
      }
 
      handleChange = e => {
@@ -29,8 +30,10 @@ class CreateAccountForm extends Component {
 
      handleSubmit = () => {
         const { first_name, last_name, password, password_confirmation, email } = this.state
+       
         if (password === password_confirmation) {
-
+            this.setState({password_error: false})
+            
             if (this.state.account_type === "coach") {
                 this.setState({password_error: false})
                 API.createCoachAccount({
@@ -42,8 +45,9 @@ class CreateAccountForm extends Component {
                     }
                 }).then(this.setState({success: true}))
                 .then(user => 
-                    setTimeout(() => {this.props.onSuccess(user)}, 3000)
-                )
+                    setTimeout(() => {this.props.onSuccess(user)}, 2000)
+                ).catch(errorPromise => errorPromise.then(error => this.setState({error: error.message})))
+
             } else if (this.state.account_type === "athlete") {
                 API.createAthleteAccount({
                     athlete: {
@@ -55,8 +59,8 @@ class CreateAccountForm extends Component {
                 })
                 .then(this.setState({success: true}))
                 .then(user => 
-                    setTimeout(() => {this.props.onSuccess(user)}, 3000)
-                )
+                    setTimeout(() => {this.props.onSuccess(user)}, 2000)
+                ).catch(errorPromise => errorPromise.then(error => this.setState({error: error.message}))).then(this.setState({success: false}))
             }
 
         } else {
@@ -73,7 +77,8 @@ class CreateAccountForm extends Component {
         return (
             <Form onSubmit={this.handleSubmit} success>
                 <h1>Create Account</h1>
-                <Form.Field required>
+                {this.state.error&& <h3 className='h3'>{this.state.error}</h3>}
+                <Form.Field required >
                     <label>First Name</label>
                     <input placeholder="Bob" type = "text" name = "first_name" value = {first_name} onChange = {this.handleChange}></input>
                 </Form.Field>
