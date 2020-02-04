@@ -8,6 +8,8 @@ import GuestHompage from './MainComponents/GuestHomepage.js';
 import CoachHompage from './MainComponents/CoachHomepage.js';
 import Navbar from './MainComponents/Navbar.js';
 import MovementBank from './MainComponents/MovementBank.js';
+import AthleteProfile from './AthleteComponents.js/AthleteProfile.js';
+import CoachProfile from './CoachComponents.js/CoachProfile.js';
 
 
 class App extends React.Component {
@@ -29,6 +31,10 @@ class App extends React.Component {
 
   setUser = (user) => {
     this.setState({user: user, homepage: user.account_type})
+  }
+
+  onDelete = () => {
+    this.setState({homepage: "guest"})
   }
 
    logout = () => {
@@ -66,6 +72,21 @@ class App extends React.Component {
         <Route exact path = '/movements'>
           <Navbar logout={this.logout} user={this.state.user}/>
            <MovementBank/>
+        </Route>
+        <Route exact path = '/profile'>
+          <Navbar logout={this.logout} user={this.state.user}/>
+          {!this.state.user&&
+           <Redirect to='/login'/>
+          }
+          {this.state.user&&
+          this.state.user.account_type === "coach"&&
+            <CoachProfile user={this.state.user}/>
+          }
+          {this.state.user&&
+          this.state.user.account_type === "athlete"&&
+            <AthleteProfile onDelete={this.onDelete} {...this.state.user}/>
+          }
+          
         </Route>
       </Switch>
       </>

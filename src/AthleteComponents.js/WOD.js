@@ -23,7 +23,7 @@ class WOD extends Component {
                         <h2 className="wodtxt">"{name}"</h2>
                         <h3 className="wodtxt">Category: {category}</h3>
                         {workout.split('\n').map(element => {
-                        return <h4 className="wodtxt">{element}</h4>
+                            return <h4 className="wodtxt">{element}</h4>
                         })}
                         <h4 className="wodtxt">Score: {score}</h4>
                     </div>

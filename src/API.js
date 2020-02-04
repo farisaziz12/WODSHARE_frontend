@@ -6,6 +6,7 @@ const COACH_LOGIN_URL = BASE_URL + "/coach/login";
 const ATHLETE_SIGNUP_URL = BASE_URL + "/athletes";
 const COACH_SIGNUP_URL = BASE_URL + "/coaches";
 
+
 function loginAthlete(user) {
     
     return fetch(ATHLETE_LOGIN_URL, createUserObj(user))
@@ -33,6 +34,25 @@ function createAthleteAccount(user) {
 }
 
 
+
+function SubmitCoachFind(athleteID, coach_email) {
+    return fetch(`http://localhost:3000/athletes/findcoach/${athleteID}`, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                "Accept": "application/json"
+            },
+            body: JSON.stringify({
+                coach_email: coach_email
+            })
+        }).then(JSONresp)
+}
+
+function deleteAthleteAccount(athleteID) {
+    return fetch(`http://localhost:3000/athletes/delete/${athleteID}`, {
+        method: "DELETE"
+    })
+}
 
 
 function createObj(obj) {
@@ -91,6 +111,8 @@ function validate() {
 }
 
 export default {loginAthlete,
+    SubmitCoachFind,
+    deleteAthleteAccount,
     loginCoach,
     validate,
     createCoachAccount,

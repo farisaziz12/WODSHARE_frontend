@@ -1,0 +1,147 @@
+@import url("https://fonts.googleapis.com/css?family=Open+Sans|Open+Sans+Condensed:300,700");
+
+
+img {
+    max-height: 150px;
+    margin: auto;
+    display: inline-block;
+  }
+
+.benchmarks-card {
+  display: inline-block;
+  width: 420px;
+  /* height: 550px; */
+  padding: 0.7em;
+  border-radius: 15px;
+  margin: 10px;
+  background: rgb(133, 133, 134);
+  text-align: left;
+  box-shadow: 0px 5px 20px -10px #111111;
+  position: relative;
+  -webkit-transition: 0.4s;
+  transition: 0.4s;
+  font-size: large;
+}
+.benchmarks-card__caption {
+  background-color: rgba(255, 255, 255, 0.65);
+  padding: 1em;
+  position: relative;
+  border-radius: 0 0 3px 3px;
+}
+.benchmarks-card__image-container {
+  background-color: rgba(0, 0, 0, 0.7);
+  text-align: center;
+  padding: 1em 1em 0;
+  border-radius: 3px 3px 0 0;
+}
+.benchmarks-card__type {
+  position: absolute;
+  top: 0;
+  right: 1em;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  color: #ffffff;
+  text-transform: uppercase;
+  font-family: "Open Sans Condensed", "Open Sans", helvetica, sans-serif;
+  letter-spacing: 0.05em;
+  padding: 0.20em;
+  line-height: 1;
+  border-radius: 2px;
+  background: #bbbbbb;
+}
+.benchmarks-card__label {
+  font-size: 10px;
+  text-transform: uppercase;
+  font-weight: 400;
+  display: block;
+  margin-bottom: 3px;
+}
+.benchmarks-card__name {
+  font-family: "Open Sans Condensed", "Open Sans", helvetica, sans-serif;
+  text-align: center;
+  font-size: 1.5em;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+.benchmarks-card__stats {
+  margin: 1em 0;
+  width: 100%;
+}
+.benchmarks-card__stats th {
+  font-family: "Open Sans Condensed", "Open Sans", helvetica, sans-serif;
+  text-align: right;
+  font-weight: 300;
+  background-color: darkblue;
+}
+.benchmarks-card__stats th, .card__stats td {
+  width: 50%;
+  padding: 0.55em 0.6em 0.3em;
+}
+.benchmarks-card__abilities {
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-pack: justify;
+          justify-content: space-between;
+}
+.benchmarks-card__ability {
+  margin-top: 1em;
+  -webkit-box-flex: 1;
+          flex: 1 0;
+}
+
+.benchmarks-card--water {
+  background: linear-gradient(120deg, #1CB5E0 0%, #000851 100%);
+  box-shadow: 0px 5px 20px -10px #000851;
+}
+.benchmarks-card--water .card__type {
+  background-color: #1CB5E0;
+}
+
+
+.benchmarks-card:nth-child(1) {
+  -webkit-transform: translateY(0px) rotate(1deg);
+          transform: translateY(0px) rotate(1deg);
+}
+.card:nth-child(2) {
+  -webkit-transform: translateY(0px) rotate(-3deg);
+          transform: translateY(0px) rotate(-3deg);
+}
+.card:nth-child(3) {
+  -webkit-transform: translateY(0px) rotate(1deg);
+          transform: translateY(0px) rotate(1deg);
+}
+.card:nth-child(4) {
+  -webkit-transform: translateY(0px) rotate(-3deg);
+          transform: translateY(0px) rotate(-3deg);
+}
+.card:nth-child(5) {
+  -webkit-transform: translateY(0px) rotate(-1deg);
+          transform: translateY(0px) rotate(-1deg);
+}
+.card:nth-child(6) {
+  -webkit-transform: translateY(0px) rotate(3deg);
+          transform: translateY(0px) rotate(3deg);
+}
+.card:nth-child(7) {
+  -webkit-transform: translateY(0px) rotate(-1deg);
+          transform: translateY(0px) rotate(-1deg);
+}
+.card:nth-child(8) {
+  -webkit-transform: translateY(0px) rotate(0deg);
+          transform: translateY(0px) rotate(0deg);
+}
+.card:nth-child(9) {
+  -webkit-transform: translateY(0px) rotate(4deg);
+          transform: translateY(0px) rotate(4deg);
+}
+.benchmarks-card:hover {
+  z-index: 5;
+  box-shadow: 0px 13px 30px -15px #000000;
+  -webkit-transform: translateY(-10px);
+          transform: translateY(-10px);
+}
+
+.benchmarks-input {
+    width: 80px;
+    font-size: 18px;
+}

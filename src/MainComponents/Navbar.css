@@ -205,3 +205,12 @@ button {
       padding-right: 5em;
     }
   }
+
+  .nav-bar-date {
+    color: black;
+    position: absolute;
+    left: 34%;
+    top: 5px;
+    font-size: 35px;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  }

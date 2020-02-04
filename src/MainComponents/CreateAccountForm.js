@@ -31,7 +31,7 @@ class CreateAccountForm extends Component {
         const { first_name, last_name, password, password_confirmation, email } = this.state
         if (password === password_confirmation) {
 
-            if (this.state.account_type === "Coach") {
+            if (this.state.account_type === "coach") {
                 this.setState({password_error: false})
                 API.createCoachAccount({
                     coach: {
@@ -44,7 +44,7 @@ class CreateAccountForm extends Component {
                 .then(user => 
                     setTimeout(() => {this.props.onSuccess(user)}, 3000)
                 )
-            } else if (this.state.account_type === "Athlete") {
+            } else if (this.state.account_type === "athlete") {
                 API.createAthleteAccount({
                     athlete: {
                         first_name: first_name,
@@ -98,14 +98,12 @@ class CreateAccountForm extends Component {
                     <label>Please choose an account type</label>
                     <Select placeholder='Account Type' onChange = {this.handleAccountTypeChange} options={options} />
                 </Form.Field>
-                {this.state.success?
+                {this.state.success&&
                     <Message
                         success
                         header='Account created'
-                        content="You're all signed up WODSHARE"
+                        content="You're all signed up for WODSHARE"
                     />
-                    :
-                    undefined
                 }
                     <Button type='submit'>Create Account</Button>
             </Form>

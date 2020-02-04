@@ -4,6 +4,7 @@ import './Homepage.css'
 import WOD from '../AthleteComponents.js/WOD';
 import { Grid, Image } from 'semantic-ui-react'
 import PrevWOD from '../AthleteComponents.js/PrevWOD';
+import Benchmarks from '../AthleteComponents.js/Benchmarks';
 
 
 
@@ -23,7 +24,7 @@ class AthleteHompage extends Component {
         .then(workouts => this.setState({workouts}))
     }
     render() {
-        const { coach_name, first_name, deadlift, strict_press, clean_and_jerk, backsquat, snatch } = this.props.user 
+        const { coach_name, first_name } = this.props.user 
         const { workouts } = this.state
         return (
             <><br/><br/><br/><br/>
@@ -39,25 +40,18 @@ class AthleteHompage extends Component {
 
                     </Grid.Column>
                     <Grid.Column>
-                        <h1>Benchmarks</h1>
-                        <h2>Deadlift</h2>
-                        <h3>{deadlift} KG</h3> 
-                        <h2>Backsquat</h2>
-                        <h3>{backsquat} KG</h3> 
-                        <h2>Clean & Jerk</h2>
-                        <h3>{clean_and_jerk} KG</h3> 
-                        <h2>Snatch</h2>
-                        <h3>{snatch} KG</h3> 
-                        <h2>Strict Press</h2>
-                        <h3>{strict_press} KG</h3> 
+
+                        <Benchmarks {...this.props.user}/>
+                    
                     </Grid.Column>
                     </Grid.Row>
 
                     <Grid.Row>
+                        
                     <Grid.Column>
-                        <br/><h1>Previous Workouts</h1>
+                    <br/><h1>Previous Workouts</h1>
                         <h2>{workouts[1]? undefined : "None"}</h2>
-                        <Grid columns={3} divided >
+                        <Grid columns={5} divided >
                             <Grid.Row>
                                 {workouts.slice(1, workouts.length-1).map(workout => (
                                 <Grid.Column>
@@ -76,3 +70,15 @@ class AthleteHompage extends Component {
 }
 
 export default AthleteHompage;
+
+// <h1>Benchmarks</h1>
+// <h2>Deadlift</h2>
+// <h3>{deadlift} KG</h3> 
+// <h2>Backsquat</h2>
+// <h3>{backsquat} KG</h3> 
+// <h2>Clean & Jerk</h2>
+// <h3>{clean_and_jerk} KG</h3> 
+// <h2>Snatch</h2>
+// <h3>{snatch} KG</h3> 
+// <h2>Strict Press</h2>
+// <h3>{strict_press} KG</h3>  
