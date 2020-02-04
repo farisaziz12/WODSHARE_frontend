@@ -1,0 +1,15 @@
+body {
+    background: linear-gradient(45deg, #7894e4, #15519e);
+  }
+  
+  .h2 {
+    text-align: center;
+    width: 100%;
+    margin: 0px auto;
+    color: #ffffff;
+    font-size: 50px;
+    letter-spacing: 5px;
+    top: 50%;
+    position: top;
+    text-shadow: -1px -1px 0px #2196f3, 3px 3px 0px #2196f3, 6px 6px 0px #0d47a1;
+  }

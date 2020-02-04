@@ -1,14 +1,38 @@
 const BASE_URL = "http://localhost:3000";
-const VALIDATE_URL = BASE_URL + "/validate"
-const LOGIN_URL = BASE_URL + "/login";
-const SIGNUP_URL = BASE_URL + "/athletes";
+const ATHLETE_VALIDATE_URL = BASE_URL + "/athlete/validate"
+const COACH_VALIDATE_URL = BASE_URL + "/coach/validate"
+const ATHLETE_LOGIN_URL = BASE_URL + "/athlete/login";
+const COACH_LOGIN_URL = BASE_URL + "/coach/login";
+const ATHLETE_SIGNUP_URL = BASE_URL + "/athletes";
+const COACH_SIGNUP_URL = BASE_URL + "/coaches";
 
-function loginUser(user) {
+function loginAthlete(user) {
     
-    return fetch(LOGIN_URL, createUserObj(user))
+    return fetch(ATHLETE_LOGIN_URL, createUserObj(user))
         .then(JSONresp)
         .then(handleUserResponse)
 } 
+
+function loginCoach(user) {
+    
+    return fetch(COACH_LOGIN_URL, createUserObj(user))
+        .then(JSONresp)
+        .then(handleUserResponse)
+} 
+
+function createCoachAccount(user) {
+    return fetch(COACH_SIGNUP_URL, createUserObj(user))
+        .then(JSONresp)
+        .then(handleUserResponse)
+}
+
+function createAthleteAccount(user) {
+    return fetch(ATHLETE_SIGNUP_URL, createUserObj(user))
+        .then(JSONresp)
+        .then(handleUserResponse)
+}
+
+
 
 
 function createObj(obj) {
@@ -32,6 +56,7 @@ function JSONresp(resp) {
 function handleUserResponse(user) {
     if (user.token) {
         localStorage.token = user.token;
+        localStorage.account_type = user.account_type
     }
     return user;
 }
@@ -48,17 +73,28 @@ function createUserObj(user) {
 }
 
 function validate() {
-    return fetch(VALIDATE_URL, {
-        method: "GET",
-        headers: {
-            Authorisation: localStorage.token,
-        }
-    }).then(JSONresp).then(handleUserResponse);
+    if (localStorage.account_type === "athlete") {
+        return fetch(ATHLETE_VALIDATE_URL, {
+            method: "GET",
+            headers: {
+                Authorisation: localStorage.token,
+            }
+        }).then(JSONresp).then(handleUserResponse);
+    } else if (localStorage.account_type === "coach") {
+        return fetch(COACH_VALIDATE_URL, {
+            method: "GET",
+            headers: {
+                Authorisation: localStorage.token,
+            }
+        }).then(JSONresp).then(handleUserResponse);
+    }
 }
 
-export default {loginUser,
-    // signUp,
+export default {loginAthlete,
+    loginCoach,
     validate,
+    createCoachAccount,
+    createAthleteAccount,
     hasToken: () => !!localStorage.token,
-    clearToken: () => localStorage.removeItem("token")  
+    clearToken: () => localStorage.removeItem("token")  && localStorage.removeItem("account_type")
 };
