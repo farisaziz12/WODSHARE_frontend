@@ -52,7 +52,7 @@ class AthleteProfile extends Component {
                     </span>
                     </div>
 
-                    <div class="profile-card-inf">
+                    {/* <div class="profile-card-inf">
                     <div class="profile-card-inf__item">
                         <div class="profile-card-inf__title profile-text">1598</div>
                         <div class="profile-card-inf__txt profile-text">Followers</div>
@@ -72,7 +72,7 @@ class AthleteProfile extends Component {
                         <div class="profile-card-inf__title profile-text">85</div>
                         <div class="profile-card-inf__txt profile-text">Works</div>
                     </div>
-                    </div>
+                    </div> */}
 
                     <div class="profile-card-ctr">
                     <button onClick={this.handleDelete} class="profile-card__button button--blue js-message-btn">Delete Account</button>

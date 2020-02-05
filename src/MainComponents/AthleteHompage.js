@@ -26,6 +26,12 @@ class AthleteHompage extends Component {
     render() {
         const { coach_name, first_name } = this.props.user 
         const { workouts } = this.state
+        const today = new Date();
+        const date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+        const formatedDate = date.split("-")
+        const WODDate = formatedDate[0] + "-0" + formatedDate[1] + "-0" + formatedDate[2]
+        const workoutOfTheDay = workouts.find(workout => workout.date === WODDate)
+        console.log(workoutOfTheDay)
         return (
             <><br/><br/><br/><br/>
                 <h2 className="h2">Welcome Back {first_name}!</h2> <br/><br/>
@@ -34,9 +40,9 @@ class AthleteHompage extends Component {
                     <Grid.Row>
                     <Grid.Column>
                         <h1>Workout of the Day</h1>
-                        <h2>{workouts[workouts.length - 1]? undefined : "None"}</h2>
+                        <h2>{workoutOfTheDay? undefined : "None"}</h2>
                         {coach_name === null? undefined  : <h1>Assigned by Coach {coach_name}</h1>}
-                         {workouts[workouts.length - 1]? <WOD workout={workouts[workouts.length - 1]}/> : undefined}
+                         {workoutOfTheDay? <WOD workout={workoutOfTheDay}/> : undefined}
 
                     </Grid.Column>
                     <Grid.Column>
