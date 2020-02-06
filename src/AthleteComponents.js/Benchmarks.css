@@ -102,38 +102,7 @@ img {
   -webkit-transform: translateY(0px) rotate(1deg);
           transform: translateY(0px) rotate(1deg);
 }
-.card:nth-child(2) {
-  -webkit-transform: translateY(0px) rotate(-3deg);
-          transform: translateY(0px) rotate(-3deg);
-}
-.card:nth-child(3) {
-  -webkit-transform: translateY(0px) rotate(1deg);
-          transform: translateY(0px) rotate(1deg);
-}
-.card:nth-child(4) {
-  -webkit-transform: translateY(0px) rotate(-3deg);
-          transform: translateY(0px) rotate(-3deg);
-}
-.card:nth-child(5) {
-  -webkit-transform: translateY(0px) rotate(-1deg);
-          transform: translateY(0px) rotate(-1deg);
-}
-.card:nth-child(6) {
-  -webkit-transform: translateY(0px) rotate(3deg);
-          transform: translateY(0px) rotate(3deg);
-}
-.card:nth-child(7) {
-  -webkit-transform: translateY(0px) rotate(-1deg);
-          transform: translateY(0px) rotate(-1deg);
-}
-.card:nth-child(8) {
-  -webkit-transform: translateY(0px) rotate(0deg);
-          transform: translateY(0px) rotate(0deg);
-}
-.card:nth-child(9) {
-  -webkit-transform: translateY(0px) rotate(4deg);
-          transform: translateY(0px) rotate(4deg);
-}
+
 .benchmarks-card:hover {
   z-index: 5;
   box-shadow: 0px 13px 30px -15px #000000;

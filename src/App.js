@@ -10,6 +10,8 @@ import Navbar from './MainComponents/Navbar.js';
 import MovementBank from './MainComponents/MovementBank.js';
 import AthleteProfile from './AthleteComponents.js/AthleteProfile.js';
 import CoachProfile from './CoachComponents.js/CoachProfile.js';
+import AthleteShowPage from './CoachComponents.js/AthleteShowPage.js';
+import Error404 from './MainComponents/Error404.js';
 
 
 class App extends React.Component {
@@ -17,7 +19,10 @@ class App extends React.Component {
   state = {
     user: null,
     loginError: false,
-    homepage: "guest"
+    homepage: "guest",
+    coach: {
+      showAthlete: null
+    }
   }
 
   componentDidMount(){
@@ -43,6 +48,14 @@ class App extends React.Component {
     this.setState({homepage: "guest"})
   }
 
+  handleShowAthlete = athlete => {
+    this.setState({
+      coach: {
+        showAthlete: athlete
+      }
+    })
+  }
+
 
   render(){
     return (
@@ -61,7 +74,7 @@ class App extends React.Component {
            undefined
           }
           {this.state.homepage === "coach"?
-           <CoachHompage user={this.state.user}/>
+           <CoachHompage handleShowAthlete={this.handleShowAthlete} user={this.state.user}/>
            :
            undefined
           }
@@ -80,13 +93,22 @@ class App extends React.Component {
           }
           {this.state.user&&
           this.state.user.account_type === "coach"&&
-            <CoachProfile user={this.state.user}/>
+            <CoachProfile onDelete={this.onDelete} {...this.state.user}/>
           }
           {this.state.user&&
           this.state.user.account_type === "athlete"&&
             <AthleteProfile onDelete={this.onDelete} {...this.state.user}/>
           }
-          
+        </Route>
+        <Route exact path = "/show/athlete">
+          <Navbar logout={this.logout} user={this.state.user}/>
+          {this.state.user&&
+            this.state.user.account_type === "coach"&&
+              this.state.coach.showAthlete? <AthleteShowPage coach={this.state.user} {...this.state.coach.showAthlete}/> : <Error404/>
+          }
+        </Route>
+        <Route path = "/">
+            <Error404/>
         </Route>
       </Switch>
       </>

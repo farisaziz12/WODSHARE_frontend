@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import { Button, Card } from 'semantic-ui-react'
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
+
 
 class AthleteCard extends Component {
 
@@ -19,10 +21,11 @@ class AthleteCard extends Component {
                     <Button onClick={() => this.props.handleAthlete(id)} basic color='green'>
                         Assign Workout
                     </Button>
-                    <Button basic color='red' onClick={`mailto:${email}`}>
-                        Contact
+                    <Button basic color='red' >
+                        <a href={`mailto:${email}`}>Contact</a>
                     </Button>
-                    </div>
+                    </div> <br/><br/>
+                    <Link exact to='/show/athlete'><Button onClick={() => this.props.handleAthleteShow(id)}>More</Button></Link>
                 </Card.Content>
             </Card>
         );

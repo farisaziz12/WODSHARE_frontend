@@ -51,7 +51,7 @@ class Benchmarks extends Component {
             <>
             <figure className="benchmarks-card benchmarks-card--water">
                 <div className="benchmarks-card__image-container">
-                    <img src="https://cdn.bulbagarden.net/upload/thumb/f/fd/134Vaporeon.png/1200px-134Vaporeon.png" alt="Vaporeon" className="benchmarks-card__image"/>   
+                    <img src="https://pngimg.com/uploads/powerlifting/powerlifting_PNG47.png" alt="Vaporeon" className="benchmarks-card__image"/>   
                 </div>
                 
                 <figcaption className="benchmarks-card__caption">

@@ -9,7 +9,8 @@ import AssignWorkoutForm from '../CoachComponents.js/AssignWorkoutForm';
 class CoachHompage extends Component {
     state = { 
         athletes: [],
-        athleteBeingProgrammedFor: null
+        athleteBeingProgrammedFor: null,
+        athleteBeingShown: null
      }
      
 
@@ -32,6 +33,12 @@ class CoachHompage extends Component {
         .then(resp => resp.json())
         .then(athletes => this.setState({athletes}))
     }
+
+
+    handleAthleteShow = athleteID => {
+        const athlete = this.state.athletes.find(athlete => athlete.id === athleteID)
+        this.props.handleShowAthlete(athlete)
+    }
     render() {
         return (
             <><br/><br/><br/><br/>
@@ -45,7 +52,7 @@ class CoachHompage extends Component {
                             {this.state.athletes[0]? 
 
                             this.state.athletes.map(athlete => (
-                            <AthleteCard handleAthlete={this.handleAthlete} {...athlete}/>
+                            <AthleteCard handleAthleteShow={this.handleAthleteShow} handleAthlete={this.handleAthlete} {...athlete}/>
                             ))
 
                             :
@@ -57,6 +64,9 @@ class CoachHompage extends Component {
                     <Grid.Column>
                         {this.state.athleteBeingProgrammedFor &&
                             <AssignWorkoutForm coachID={this.props.user.id} athleteName={this.state.athleteBeingProgrammedFor.first_name} athleteID={this.state.athleteBeingProgrammedFor.id}/>
+                        }
+                        {!this.state.athleteBeingProgrammedFor &&
+                            <h1>Select an Athlete to Program for</h1>
                         }
                     </Grid.Column>
                     </Grid.Row>

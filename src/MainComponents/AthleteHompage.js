@@ -31,7 +31,14 @@ class AthleteHompage extends Component {
         const formatedDate = date.split("-")
         const WODDate = formatedDate[0] + "-0" + formatedDate[1] + "-0" + formatedDate[2]
         const workoutOfTheDay = workouts.find(workout => workout.date === WODDate)
-        console.log(workoutOfTheDay)
+        const prevWOD1 = workouts.findIndex(workout => workout.date === WODDate) - 1
+        const prevWOD2 = workouts.findIndex(workout => workout.date === WODDate) - 2
+        const prevWOD3 = workouts.findIndex(workout => workout.date === WODDate) - 3
+        const prevWOD4 = workouts.findIndex(workout => workout.date === WODDate) - 4
+        const prevWOD5 = workouts.findIndex(workout => workout.date === WODDate) - 5
+        const prevWODS = [prevWOD1, prevWOD2, prevWOD3, prevWOD4, prevWOD5]
+        const definedPrevWODS = prevWODS.filter(prevWOD => (prevWOD !== undefined))
+        const prevWODObjects = definedPrevWODS.map(prevWODIndex => {return workouts[prevWODIndex]})
         return (
             <><br/><br/><br/><br/>
                 <h2 className="h2">Welcome Back {first_name}!</h2> <br/><br/>
@@ -41,7 +48,7 @@ class AthleteHompage extends Component {
                     <Grid.Column>
                         <h1>Workout of the Day</h1>
                         <h2>{workoutOfTheDay? undefined : "None"}</h2>
-                        {coach_name === null? undefined  : <h1>Assigned by Coach {coach_name}</h1>}
+                        {coach_name === null? undefined  : workoutOfTheDay&&<h1>Assigned by Coach {coach_name}</h1>}
                          {workoutOfTheDay? <WOD workout={workoutOfTheDay}/> : undefined}
 
                     </Grid.Column>
@@ -59,7 +66,7 @@ class AthleteHompage extends Component {
                         <h2>{workouts[1]? undefined : "None"}</h2>
                         <Grid columns={5} divided >
                             <Grid.Row>
-                                {workouts.slice(1, workouts.length-1).map(workout => (
+                                {prevWODObjects[0]&& prevWODObjects.reverse().map(workout => (
                                 <Grid.Column>
                                     <PrevWOD workout={workout}/>
                                 </Grid.Column>

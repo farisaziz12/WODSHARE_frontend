@@ -48,7 +48,7 @@ class AssignWorkoutForm extends Component {
                     coach_id: this.props.coachID
                 }
             })
-        }).then(this.setState({name: "", wod_type: "", date: "", category: "", workout: ""}))
+        }).then(this.setState({success:true, name: "", wod_type: "", date: "", category: "", workout: ""}))
     }
 
 
@@ -72,7 +72,7 @@ class AssignWorkoutForm extends Component {
                 <Grid.Row centered>
                     <Grid.Column width={6}>
                         <Form size={"small"} onSubmit={this.handleSubmit} success>
-                            <h1>Assign {this.props.athleteName} Workout</h1>
+                            <h1>Assign {this.props.athleteName} a Workout</h1>
                             <Form.Field >
                                 <label>Name</label>
                                 <input placeholder="Fran" type = "text" name = "name" value = {name} onChange = {this.handleChange}></input>
@@ -90,7 +90,7 @@ class AssignWorkoutForm extends Component {
                             <Message
                                 success
                                 header='Workout created'
-                                content="You're all signed up WODSHARE"
+                                content="Your athlete is all set to tackle this workout!"
                             />
                             :
                             undefined

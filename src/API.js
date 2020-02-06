@@ -47,6 +47,18 @@ function SubmitCoachFind(athleteID, coach_email) {
             })
         }).then(JSONresp)
 }
+function SubmitAthleteFind(coachID, athlete_email) {
+    return fetch(`http://localhost:3000/coaches/findathlete/${coachID}`, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                "Accept": "application/json"
+            },
+            body: JSON.stringify({
+                athlete_email: athlete_email
+            })
+        }).then(JSONresp)
+}
 
 function deleteAthleteAccount(athleteID) {
     return fetch(`http://localhost:3000/athletes/delete/${athleteID}`, {
@@ -112,6 +124,7 @@ function validate() {
 
 export default {loginAthlete,
     SubmitCoachFind,
+    SubmitAthleteFind,
     deleteAthleteAccount,
     loginCoach,
     validate,
