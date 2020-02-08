@@ -22,7 +22,7 @@ body {
     border-radius: 10px;
     box-shadow: -1rem 0 3rem #000;
     margin-left: -50px;
-    transition: 0.4s ease-out;
+    transition: 0.7s ease-out;
     position: relative;
     left: 0px;
   }
@@ -32,7 +32,7 @@ body {
   }
   
   .prevwod-card:hover {
-    transform: translateX(-100px);
+    transform: translateX(-150px);
     transition: 0.7s ease-out;
   }
   
@@ -62,7 +62,7 @@ body {
   .card-content {
       text-align: center;
       top: 120px;
-      right: -50px;
+      right: -26px;
       position: relative;
   }
   

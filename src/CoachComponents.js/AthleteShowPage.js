@@ -11,7 +11,7 @@ class AthleteShowPage extends Component {
      }
 
      componentDidMount() {
-        fetch(`http://localhost:3000/coach/athlete/workouts/${this.props.id}`,{
+        fetch(`https://wodshare.herokuapp.com/coach/athlete/workouts/${this.props.id}`,{
             method: "GET",
             headers: {
                 Authorisation: localStorage.token,

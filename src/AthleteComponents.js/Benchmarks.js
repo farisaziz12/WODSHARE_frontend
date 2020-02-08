@@ -27,7 +27,7 @@ class Benchmarks extends Component {
 
     handleNewBenchmarksSubmit = () => {
         const { deadlift, strict_press, clean_and_jerk, backsquat, snatch } = this.state
-        fetch(`http://localhost:3000/athletes/${this.props.id}`, {
+        fetch(`https://wodshare.herokuapp.com/athletes/${this.props.id}`, {
             method: "PATCH",
             headers: {
                 "Content-Type": "application/json",

@@ -14,7 +14,7 @@ class AthleteHompage extends Component {
      }
 
     componentDidMount() {
-        fetch('http://localhost:3000/athlete/workouts',{
+        fetch('https://wodshare.herokuapp.com/athlete/workouts',{
             method: "GET",
             headers: {
                 Authorisation: localStorage.token,
@@ -26,19 +26,17 @@ class AthleteHompage extends Component {
     render() {
         const { coach_name, first_name } = this.props.user 
         const { workouts } = this.state
+
         const today = new Date();
         const date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
         const formatedDate = date.split("-")
         const WODDate = formatedDate[0] + "-0" + formatedDate[1] + "-0" + formatedDate[2]
+
         const workoutOfTheDay = workouts.find(workout => workout.date === WODDate)
-        const prevWOD1 = workouts.findIndex(workout => workout.date === WODDate) - 1
-        const prevWOD2 = workouts.findIndex(workout => workout.date === WODDate) - 2
-        const prevWOD3 = workouts.findIndex(workout => workout.date === WODDate) - 3
-        const prevWOD4 = workouts.findIndex(workout => workout.date === WODDate) - 4
-        const prevWOD5 = workouts.findIndex(workout => workout.date === WODDate) - 5
-        const prevWODS = [prevWOD1, prevWOD2, prevWOD3, prevWOD4, prevWOD5]
-        const definedPrevWODS = prevWODS.filter(prevWOD => (prevWOD !== undefined))
-        const prevWODObjects = definedPrevWODS.map(prevWODIndex => {return workouts[prevWODIndex]})
+
+        const PrevWODSSort = workouts.sort((a,b) => {return new Date(a.date) - new Date(b.date);}).filter(workout => new Date(workout.date) < new Date(WODDate))
+        const PrevWODS = PrevWODSSort.slice(Math.max(PrevWODSSort.length - 5))
+        console.log(PrevWODS)
         return (
             <><br/><br/><br/><br/>
                 <h2 className="h2">Welcome Back {first_name}!</h2> <br/><br/>
@@ -66,7 +64,7 @@ class AthleteHompage extends Component {
                         <h2>{workouts[1]? undefined : "None"}</h2>
                         <Grid columns={5} divided >
                             <Grid.Row>
-                                {prevWODObjects[0]&& prevWODObjects.reverse().map(workout => (
+                                {PrevWODS[0]&& PrevWODS.reverse().map(workout => (
                                 <Grid.Column>
                                     <PrevWOD workout={workout}/>
                                 </Grid.Column>

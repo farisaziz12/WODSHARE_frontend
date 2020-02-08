@@ -10,7 +10,7 @@ class MovementBank extends Component {
 
 
      componentDidMount() {
-        fetch('http://localhost:3000/movements')
+        fetch('https://wodshare.herokuapp.com/movements')
         .then(resp => resp.json())
         .then(movements => this.setState({movements}))
      }

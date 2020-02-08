@@ -31,7 +31,7 @@ class EditWorkoutForm extends Component {
 
     handleSubmit = () => {
         const { name, wod_type, category, date, workout } = this.state
-        fetch(`http://localhost:3000/workouts/${this.props.id}`, {
+        fetch(`https://wodshare.herokuapp.com/${this.props.id}`, {
             method: "PATCH",
             headers: {
                 "Content-Type": "application/json",

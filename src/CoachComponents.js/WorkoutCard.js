@@ -6,7 +6,7 @@ class WorkoutCard extends Component {
     state = {  }
 
     handleDelete = () => {
-         fetch(`http://localhost:3000/workouts/delete/${this.props.id}`, {
+         fetch(`https://wodshare.herokuapp.com/workouts/delete/${this.props.id}`, {
             method: "DELETE"
         }).then(workout => this.props.modifyWorkoutsArr(this.props.id))
     }

@@ -12,6 +12,7 @@ import AthleteProfile from './AthleteComponents.js/AthleteProfile.js';
 import CoachProfile from './CoachComponents.js/CoachProfile.js';
 import AthleteShowPage from './CoachComponents.js/AthleteShowPage.js';
 import Error404 from './MainComponents/Error404.js';
+import WODGenerator from './AthleteComponents.js/WODGenerator.js';
 
 
 class App extends React.Component {
@@ -105,6 +106,13 @@ class App extends React.Component {
           {this.state.user&&
             this.state.user.account_type === "coach"&&
               this.state.coach.showAthlete? <AthleteShowPage coach={this.state.user} {...this.state.coach.showAthlete}/> : <Error404/>
+          }
+        </Route>
+        <Route exact path = "/wod/generator">
+          <Navbar logout={this.logout} user={this.state.user}/>
+          {this.state.user&&
+            this.state.user.account_type === "athlete"&&
+              <WODGenerator {...this.state.user}/>
           }
         </Route>
         <Route path = "/">

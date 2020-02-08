@@ -1,4 +1,4 @@
-const BASE_URL = "http://localhost:3000";
+const BASE_URL = "https://wodshare.herokuapp.com";
 const ATHLETE_VALIDATE_URL = BASE_URL + "/athlete/validate"
 const COACH_VALIDATE_URL = BASE_URL + "/coach/validate"
 const ATHLETE_LOGIN_URL = BASE_URL + "/athlete/login";
@@ -36,7 +36,7 @@ function createAthleteAccount(user) {
 
 
 function SubmitCoachFind(athleteID, coach_email) {
-    return fetch(`http://localhost:3000/athletes/findcoach/${athleteID}`, {
+    return fetch(`https://wodshare.herokuapp.com/athletes/findcoach/${athleteID}`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -48,7 +48,7 @@ function SubmitCoachFind(athleteID, coach_email) {
         }).then(JSONresp)
 }
 function SubmitAthleteFind(coachID, athlete_email) {
-    return fetch(`http://localhost:3000/coaches/findathlete/${coachID}`, {
+    return fetch(`https://wodshare.herokuapp.com/coaches/findathlete/${coachID}`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -61,7 +61,7 @@ function SubmitAthleteFind(coachID, athlete_email) {
 }
 
 function deleteAthleteAccount(athleteID) {
-    return fetch(`http://localhost:3000/athletes/delete/${athleteID}`, {
+    return fetch(`https://wodshare.herokuapp.com/athletes/delete/${athleteID}`, {
         method: "DELETE"
     })
 }

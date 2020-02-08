@@ -24,7 +24,7 @@ class CoachHompage extends Component {
      }
 
      componentDidMount() {
-        fetch('http://localhost:3000/coach/athletes',{
+        fetch('https://wodshare.herokuapp.com/coach/athletes',{
             method: "GET",
             headers: {
                 Authorisation: localStorage.token,

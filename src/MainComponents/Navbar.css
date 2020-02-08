@@ -109,6 +109,8 @@ button {
     font-size: 1.75em;
     /* line-height: 0.75em; */
     color: #fff;
+    position: relative;
+    top: 10px;
   }
   
   h1.logo a, a:active, a:hover, a:visited {
