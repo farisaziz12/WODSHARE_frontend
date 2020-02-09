@@ -31,7 +31,7 @@ class AssignWorkoutForm extends Component {
 
     handleSubmit = () => {
         const { name, wod_type, category, date, workout, athlete } = this.state
-        fetch('https://wodshare.herokuapp.com', {
+        fetch('https://wodshare.herokuapp.com/workouts', {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
