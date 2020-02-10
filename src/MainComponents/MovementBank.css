@@ -1,11 +1,21 @@
-/* @import "nib"
- */
+
+ .body {
+  background: linear-gradient(45deg, #00416A, #E4E5E6);
+  height: 120vh;
+  position: relative;
+ }
+
+ .title {
+   margin-bottom: 1.5%;
+   font-family: 'Quicksand', sans-serif;
+ }
 
 .movement-container {
     width: 200px;
     height: 150px;
+    margin-top: 8%;
     margin-bottom: 70px;
-    margin-left: 10px;
+    margin-left: 4%;
     position: relative;
     -webkit-perspective: 800px;
     -ms-perspective: 800px;
@@ -47,6 +57,7 @@
     font: 16px/1.5 "Helvetica Neue", Helvetica, Arial, sans-serif;
     -webkit-font-smoothing: antialiased;
     color: #47525d;
+    font-family: 'Quicksand', sans-serif;
   }
   .movement-card .back {
     -webkit-transform: rotateY(180deg);
@@ -55,4 +66,30 @@
   .movement-card.flipped {
     -webkit-transform: rotateY(180deg);
     transform: rotateY(180deg);
+  }
+
+  @media (min-width: 2000px) {
+    .body {
+      margin-top: 2.2%;
+      background: linear-gradient(45deg, #00416A, #E4E5E6);
+      height: 120vh;
+      position: relative;
+     }
+    
+     .title {
+       margin-bottom: 1.5%;
+     }
+
+     .movement-container {
+      width: 200px;
+      height: 150px;
+      margin-top: 8%;
+      margin-bottom: 70px;
+      margin-left: 22%;
+      position: relative;
+      -webkit-perspective: 800px;
+      -ms-perspective: 800px;
+      perspective: 800px;
+      border-radius: 4px;
+    }
   }

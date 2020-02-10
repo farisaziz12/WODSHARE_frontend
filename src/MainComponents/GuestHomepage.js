@@ -5,9 +5,9 @@ class GuestHompage extends Component {
     state = {  }
     render() {
         return (
-            <> <br/><br/><br/><br/>
-            <h1>Guest Homepage</h1>
-            </>
+            <div className='guest-layout'> 
+                <h1>Guest Homepage</h1>
+            </div>
         );
     }
 }

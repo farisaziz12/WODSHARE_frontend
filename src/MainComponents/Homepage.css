@@ -1,6 +1,25 @@
-body {
-    background: linear-gradient(45deg, #7894e4, #15519e);
+
+
+
+.wod-layout {
+    margin-top: 6.9vh;
+    background: linear-gradient(45deg, #00416A, #E4E5E6);
+    height: 175vh;
+    width: 100%;
+    display: inline-block;
+    font-family: 'Quicksand', sans-serif;
   }
+.guest-layout {
+    margin-top: 7.0vh;
+    background: linear-gradient(45deg, #00416A, #E4E5E6);
+    height: 100vh;
+}
+
+.text {
+  font-family: 'Quicksand', sans-serif;
+}
+
+
   
   .h2 {
     text-align: center;
@@ -8,8 +27,24 @@ body {
     margin: 0px auto;
     color: #ffffff;
     font-size: 50px;
+    font-family: 'Quicksand', sans-serif;
     letter-spacing: 5px;
     top: 50%;
     position: top;
-    text-shadow: -1px -1px 0px #2196f3, 3px 3px 0px #2196f3, 6px 6px 0px #0d47a1;
+    text-shadow: -1px -1px 0px #00416A, 1px 1px 0px #00416A, 2px 2px 0px #000205;
   }
+  
+
+  @media (min-width: 2000px) {
+    .wod-layout {
+      margin-top: 5.5vh;
+      background: linear-gradient(45deg, #00416A, #E4E5E6);
+      height: 100%;
+    }
+    .guest-layout {
+      margin-top: 5.8vh;
+      background: linear-gradient(45deg, #00416A, #E4E5E6);
+      height: 100vh;
+    }
+    
+    }

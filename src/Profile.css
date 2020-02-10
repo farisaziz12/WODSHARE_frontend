@@ -1,6 +1,7 @@
 @import url("https://fonts.googleapis.com/css?family=Quicksand:400,500,700&subset=latin-ext");
 
 
+
 * {
   box-sizing: border-box;
 }
@@ -23,9 +24,8 @@ a, a:hover {
   padding: 50px 20px;
   padding-top: 100px;
   display: flex;
-  background-image: linear-gradient(-20deg,#7894e4, 0%, #15519e 100%);
+  background-image: linear-gradient(45deg, #00416A, #E4E5E6); 
   display: flex;
-  background-image: linear-gradient(-20deg, #7894e4, 0%, #15519e 100%);
 }
 @media screen and (max-width: 768px) {
   .wrapper {
@@ -363,3 +363,5 @@ a, a:hover {
   border-radius: 12px;
   transition: all .3s;
 }
+
+

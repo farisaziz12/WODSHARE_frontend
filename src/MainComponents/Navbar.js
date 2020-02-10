@@ -10,7 +10,7 @@ class Navbar extends Component {
         const date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
         const formatedDate = date.split("-")
         const reformatedDate = formatedDate[0].split("") 
-        const cfFormatDate = reformatedDate[2] + reformatedDate[3] + 0 + formatedDate[1] + 0 + formatedDate[2]
+        const cfFormatDate = reformatedDate[2] + reformatedDate[3] + 0 + formatedDate[1] + formatedDate[2]
 
         return (
             <>
