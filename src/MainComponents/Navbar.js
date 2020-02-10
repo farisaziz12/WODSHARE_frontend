@@ -27,7 +27,7 @@ class Navbar extends Component {
                 <div className="nav right">
                     <h1 className="nav-bar-date">{cfFormatDate}</h1>
                     <NavLink className="nav-link " exact to="/"><span className="nav-link-span"><span className="u-nav">Home</span></span></NavLink>
-                    {this.props.user&& this.props.user.account_type === "athlete"&& <NavLink className="nav-link" exact to='/wod/generator'><span className="nav-link-span"><span className="u-nav">WOD Generator</span></span></NavLink>}
+                    {/* {this.props.user&& this.props.user.account_type === "athlete"&& <NavLink className="nav-link" exact to='/wod/generator'><span className="nav-link-span"><span className="u-nav">WOD Generator</span></span></NavLink>} */}
                     <NavLink className="nav-link" exact to='/movements'><span className="nav-link-span"><span className="u-nav">Movement Bank</span></span></NavLink>
                     <NavLink exact to="/profile" className="nav-link"><span className="nav-link-span"><span className="u-nav">Profile</span></span></NavLink>
                     { this.props.user? 
