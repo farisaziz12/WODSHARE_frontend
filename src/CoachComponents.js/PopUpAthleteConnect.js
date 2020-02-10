@@ -13,10 +13,8 @@ export default class PopUpAthleteConnect extends React.Component {
          e.preventDefault()
         API.SubmitAthleteFind(this.props.coachID, this.state.email)
         .then(athlete => this.setState({athlete: athlete, email: ""}))
+        .then(this.props.handleSuccess)
         .catch(errorPromise => errorPromise.then(error => this.setState({error: error.message})))
-        // if (this.state.athlete) {
-        //     this.setState({email: null})
-        // }
     }
 
 

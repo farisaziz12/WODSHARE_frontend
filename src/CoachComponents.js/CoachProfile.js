@@ -23,6 +23,10 @@ class CoachProfile extends Component {
         API.clearToken()
      }
 
+     handleSuccess = () => { 
+         this.setState({displayForm: false})
+     }
+
     render() {
         return (
             <> <br/><br/>

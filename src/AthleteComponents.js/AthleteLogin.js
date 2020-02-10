@@ -15,7 +15,8 @@ class AthleteLogin extends Component {
         lastName: null, 
         signUp: false, 
         passwordMatchError: false,
-        incorrectPasswordError: false 
+        incorrectPasswordError: false, 
+        error: null
      }
 
      handleChange = e => {
@@ -30,6 +31,7 @@ class AthleteLogin extends Component {
             email: this.state.loginEmail,
             password: this.state.loginPassword
         }).then(user => this.props.onSuccess(user))
+        .catch(errorPromise => errorPromise.then(error => this.setState({error: error.error}))).then(this.setState({success: false}))
      }
 
      toggleSignup = () => {
@@ -57,7 +59,8 @@ class AthleteLogin extends Component {
                 .then(this.setState({success: true}))
                 .then(user => 
                     setTimeout(() => {this.props.onSuccess(user)}, 500)
-                ).catch(errorPromise => errorPromise.then(error => this.setState({error: error.message}))).then(this.setState({success: false}))
+                )
+                .catch(errorPromise => errorPromise.then(error => this.setState({error: error.message}))).then(this.setState({success: false}))
         } else {
             this.setState({passwordMatchError: true})
         }
@@ -80,6 +83,7 @@ class AthleteLogin extends Component {
                 </div>
                 { !this.state.signUp&&
                 <div className="login-form-container sign-in-container">
+                    {this.state.error&& <p className='error'>{this.state.error}</p>}
                     <form onSubmit={this.handleLoginSubmit}>
                         <h1 className='login-h1'>Sign in</h1>
                         <input onChange={this.handleChange} name="loginEmail" className='login-input' type="email" placeholder="Email" />

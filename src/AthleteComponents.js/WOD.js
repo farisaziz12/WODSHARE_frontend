@@ -5,7 +5,8 @@ import PopUpScoreSubmit from './PopUpScoreSubmit';
 
 class WOD extends Component {
     state = { 
-        displayForm: false
+        displayForm: false, 
+        score: this.props.workout.score
      }
 
      handleClick = () => {
@@ -13,8 +14,12 @@ class WOD extends Component {
              displayForm: !this.state.displayForm
          })
      }
+
+     handleScoreChange = score => {
+         this.setState({score, displayForm: false})
+     }
     render() {
-        const { id, name, workout, category, score } = this.props.workout
+        const { id, name, workout, category } = this.props.workout
         return (
             <>
                 <div className="shade">
@@ -25,12 +30,12 @@ class WOD extends Component {
                         {workout.split('\n').map(element => {
                             return <h4 className="wodtxt">{element}</h4>
                         })}
-                        <h4 className="wodtxt">Score: {score}</h4>
+                        <h4 className="wodtxt">Score: {this.state.score}</h4>
                     </div>
                     </div>
                 </div>
                 <Button onClick={this.handleClick}>Submit Score</Button>
-                    {this.state.displayForm? <PopUpScoreSubmit WODID={id} handleClick={this.handleClick}/> : undefined} 
+                    {this.state.displayForm? <PopUpScoreSubmit handleScoreChange={this.handleScoreChange} WODID={id} handleClick={this.handleClick}/> : undefined} 
             </>
         );
     }
