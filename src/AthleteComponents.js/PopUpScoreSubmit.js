@@ -7,7 +7,7 @@ export default class PopUpScoreSubmit extends React.Component {
     }
 
      handleSubmit = () => {
-        fetch(`https://wodshare.herokuapp.com/${this.props.WODID}`, {
+        fetch(`https://wodshare.herokuapp.com/athletes/${this.props.WODID}`, {
             method: "PATCH",
             headers: {
                 "Content-Type": "application/json",
