@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import './Navbar.css'
 import { NavLink } from 'react-router-dom'
+import { Container } from 'semantic-ui-react'
 
 
 
