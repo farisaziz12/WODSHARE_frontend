@@ -15,7 +15,8 @@ class CoachLogin extends Component {
         signUp: false, 
         passwordMatchError: false,
         incorrectPasswordError: false, 
-        error: null
+        error: null,
+        signupError: null
      }
 
      handleChange = e => {
@@ -57,7 +58,7 @@ class CoachLogin extends Component {
                .then(this.setState({success: true}))
                .then(user => 
                    setTimeout(() => {this.props.onSuccess(user)}, 500)
-               ).catch(errorPromise => errorPromise.then(error => this.setState({error: error.message}))).then(this.setState({success: false}))
+               ).catch(errorPromise => errorPromise.then(error => this.setState({signupError: error.message}))).then(this.setState({success: false}))
        } else {
            this.setState({passwordMatchError: true})
        }
@@ -67,6 +68,7 @@ class CoachLogin extends Component {
         return (
             <div className={`login-container ${this.state.signUp? "right-panel-active" : ""}`} id="container">
                 <div className="login-form-container sign-up-container ">
+                    {this.state.signupError&& <p className='error'>{this.state.signupError}</p>}
                     <form onSubmit={this.handleSignUpSubmit}>
                         <h1 className='login-h1'>Create Account</h1>
                         <input onChange={this.handleChange} name="firstName" className='login-input' type="text" placeholder="First Name" />
