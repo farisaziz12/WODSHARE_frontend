@@ -1,16 +1,26 @@
  .search-bar {
    position: absolute;
-   margin-top: -24%;
+   margin-top: -28%;
+   margin-bottom: -40%;
  }
 
  .movements-container {
-   margin-top: 10%;
+   margin-top: 7%;
+   margin-left: -5%;
+   height: 120vh;
+   display: flex;
+   flex-wrap: wrap;
+   /* justify-items: center; */
+   overflow-x: auto;
+   align-items: top;
+   justify-content: center;
+   width: 100%;
  }
  
  
  .body {
   background: linear-gradient(45deg, #00416A, #E4E5E6);
-  height: 120vh;
+  height: 100%;
   position: relative;
  }
 
@@ -23,7 +33,7 @@
     width: 200px;
     height: 150px;
     margin-top: 8%;
-    margin-bottom: 70px;
+    margin-bottom: -40px;
     margin-left: 4%;
     position: relative;
     -webkit-perspective: 800px;

@@ -58,20 +58,14 @@ class MovementBank extends Component {
                 {!this.state.loading? <Search onSearchChange={this.handleSearchChange} showNoResults={false}/>  : undefined}
             </div>
             <div className="movements-container">
-            {!this.state.loading&&
-            <Container fluid={true}> 
-            <Grid columns={6} divided >
-                    <Grid.Row>
-                        
-                        {movements.map(movement => (
-                            <Grid.Column>
-                            <Movement {...movement}/>
-                            </Grid.Column>
-                        ))}
+            {!this.state.load4ing &&
+                <> 
+                    {movements.map(movement => (
+                        <Movement {...movement}/>
 
-                    </Grid.Row>
-                </Grid>
-            </Container>
+                    ))}
+                </>
+
             }
             </div>
             </div>
