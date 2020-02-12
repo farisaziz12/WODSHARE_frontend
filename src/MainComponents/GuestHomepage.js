@@ -25,10 +25,10 @@ class GuestHompage extends Component {
                                 <h1>Workout of the Day:</h1> 
                                 <h3>On a 15-minute running clock, for max reps:</h3>
                                 <h3>5 rounds of:</h3>
-                                <p>20 seconds of pull-ups, 10 seconds of rest</p>
-                                <p>20 seconds of push-ups, 10 seconds of rest</p>
-                                <p>Then, 5 rounds of squats and GHD sit-ups</p>
-                                <p>Then, 5 rounds of of rowing and double-unders</p>
+                                <h5>20 seconds of pull-ups, 10 seconds of rest</h5>
+                                <h5>20 seconds of push-ups, 10 seconds of rest</h5>
+                                <h5>Then, 5 rounds of squats and GHD sit-ups</h5>
+                                <h5>Then, 5 rounds of of rowing and double-unders</h5>
                             </div>
                         </div>
                     </div>
