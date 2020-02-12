@@ -31,16 +31,17 @@ class LoginForm extends Component {
         const { activeItem } = this.state
         if (this.props.user) return <Redirect to="/"/>;
         return (
-            <div className='body'>
+            <div className='login-body'>
                 {!this.state.athleteLogin && !this.state.coachLogin?
                 <>
                     <button onClick={this.handleAthleteClick} className='choice-button'>Athlete</button> 
                     <h1>------OR------</h1>
-                    <button onClick={this.handleCoachClick} className='choice-button'>Coach</button>
+                    <button onClick={this.handleCoachClick} className='choice-button-2'>Coach</button>
                 </>
                 :
                 undefined
                 }
+                <div className='login-from-spacing'></div> <br/>
                 {this.state.athleteLogin&&
                     <AthleteLogin onSuccess={this.props.onSuccess}/>
                 }
