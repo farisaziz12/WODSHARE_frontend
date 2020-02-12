@@ -12,6 +12,7 @@ export default class PopUpCoachConnect extends React.Component {
          e.preventDefault()
         API.SubmitCoachFind(this.props.athleteID, this.state.email)
         .then(this.setState({email: null}))
+        .then(this.props.handleSuccess)
         .catch(errorPromise => errorPromise.then(error => this.setState({error: error.message})))
     }
 

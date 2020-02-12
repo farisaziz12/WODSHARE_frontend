@@ -6,8 +6,9 @@ export default class PopUpScoreSubmit extends React.Component {
         score: null
     }
 
-     handleSubmit = () => {
-        fetch(`https://wodshare.herokuapp.com/athletes/${this.props.WODID}`, {
+     handleSubmit = (e) => {
+         e.preventDefault()
+        fetch(`https://wodshare.herokuapp.com/workouts/${this.props.WODID}`, {
             method: "PATCH",
             headers: {
                 "Content-Type": "application/json",
@@ -18,7 +19,9 @@ export default class PopUpScoreSubmit extends React.Component {
                     score: this.state.score
                 }
             })
-        }).then(this.setState({score: null}))
+        })
+        .then(this.props.handleScoreChange(this.state.score))
+        .then(this.setState({score: ""}))
     }
 
 
@@ -35,7 +38,7 @@ export default class PopUpScoreSubmit extends React.Component {
                     <h1>Submit Score</h1>
 
                     <label for="score"><b>Score</b></label>
-                        <input onChange={this.handleScoreChange} type="text" placeholder="6:57 / 5 Rounds 3 Reps" name="score" required/>
+                        <input value={this.state.score} onChange={this.handleScoreChange} type="text" placeholder="6:57 / 5 Rounds 3 Reps" name="score" required/>
 
                     <button type="submit" class="btn">Submit</button>
                     <button type="button" class="btn cancel" onClick={this.props.handleClick}>Close</button>

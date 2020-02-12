@@ -30,21 +30,24 @@ class AthleteHompage extends Component {
         const today = new Date();
         const date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
         const formatedDate = date.split("-")
-        const WODDate = formatedDate[0] + "-0" + formatedDate[1] + "-0" + formatedDate[2]
+        const WODDatePT1 = parseInt(formatedDate[1]) < 10 ? formatedDate[0] + "-0" + formatedDate[1] : formatedDate[0] + "-" + formatedDate[1] 
+        const WODDatePT2 = formatedDate[2].length < 9 ?  "-" + formatedDate[2] :  "-0" + formatedDate[2]
+        const WODDate = WODDatePT1 + WODDatePT2
 
         const workoutOfTheDay = workouts.find(workout => workout.date === WODDate)
-
         const PrevWODSSort = workouts.sort((a,b) => {return new Date(a.date) - new Date(b.date);}).filter(workout => new Date(workout.date) < new Date(WODDate))
         const PrevWODS = PrevWODSSort.slice(Math.max(PrevWODSSort.length - 5))
-        console.log(PrevWODS)
+        // const WelcomeWordArr = [first_name, "Beast, Monster, Champion, Engine"]
+         
+
         return (
-            <><br/><br/><br/><br/>
+            <>
+                <div className="wod-layout" name="wod-layout">
                 <h2 className="h2">Welcome Back {first_name}!</h2> <br/><br/>
-                <div name="wod-layout">
                 <Grid textAlign={"center"} columns={2} divided>
                     <Grid.Row>
                     <Grid.Column>
-                        <h1>Workout of the Day</h1>
+                        <h1 className='text'>Workout of the Day</h1>
                         <h2>{workoutOfTheDay? undefined : "None"}</h2>
                         {coach_name === null? undefined  : workoutOfTheDay&&<h1>Assigned by Coach {coach_name}</h1>}
                          {workoutOfTheDay? <WOD workout={workoutOfTheDay}/> : undefined}
@@ -60,7 +63,7 @@ class AthleteHompage extends Component {
                     <Grid.Row>
                         
                     <Grid.Column>
-                    <br/><h1>Previous Workouts</h1>
+                    <br/><br/><h1 className='text'>Previous Workouts</h1>
                         <h2>{workouts[1]? undefined : "None"}</h2>
                         <Grid columns={5} divided >
                             <Grid.Row>

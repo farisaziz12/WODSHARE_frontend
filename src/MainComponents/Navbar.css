@@ -19,7 +19,7 @@ button {
   body {
     line-height: 1.5em;
     padding: 0;
-    margin: 0;
+    font-family: 'Quicksand', sans-serif;
   }
   
   section {
@@ -55,11 +55,11 @@ button {
   #nav-wrapper {
     overflow: hidden;
     width: 100%;
-    margin: 0 auto;
     position: fixed;
     top: 0;
     left: 0;
     z-index: 100;
+    font-family: 'Quicksand', sans-serif;
   }
   
   #nav {
@@ -67,7 +67,7 @@ button {
     box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.1);
     display: flex;
     flex-direction: column;
-    font-family: "Saira Semi Condensed", sans-serif;
+    font-family: 'Quicksand', sans-serif;
     height: 4em;
     overflow: hidden;
   }
@@ -89,9 +89,9 @@ button {
   }
   
   span.gradient {
-    background: #7894e4;
-    background: -webkit-linear-gradient(45deg, #7894e4, #15519e);
-    background: linear-gradient(45deg, #7894e4, #15519e);
+    background: rgb(67, 99, 119);
+    background-color: rgb(67, 99, 119);
+    background-color: rgb(67, 99, 119);
     padding: 0 1em;
     position: relative;
     right: 1em;
@@ -111,6 +111,7 @@ button {
     color: #fff;
     position: relative;
     top: 10px;
+    font-family: 'Quicksand', sans-serif;
   }
   
   h1.logo a, a:active, a:hover, a:visited {
@@ -126,7 +127,7 @@ button {
   
   a:link, a:visited, a:active {
     text-decoration: none;
-    color: #7894e4;
+    color: rgb(67, 99, 119);
   }
   
   a:hover {
@@ -140,7 +141,7 @@ button {
   }
   
   .btn-nav {
-    color: #7894e4;
+    color: rgb(67, 99, 119);
     padding-left: 2em;
     padding-right: 2em;
   }
@@ -173,9 +174,9 @@ button {
     }
   
     .nav a:link.active, a:visited.active, a:active.active {
-      background: #7894e4;
-      background: -webkit-linear-gradient(45deg, #7894e4, #15519e);
-      background: linear-gradient(45deg, #7894e4, #15519e);
+      background: rgb(67, 99, 119);
+      background-color: rgb(67, 99, 119);
+      background-color: rgb(67, 99, 119);
       color: #fff;
     }
   
@@ -210,9 +211,20 @@ button {
 
   .nav-bar-date {
     color: black;
-    position: absolute;
-    left: 34%;
+    position: relative;
+    left: -23%;
     top: 5px;
     font-size: 35px;
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  }
+
+  @media (min-width: 2000px){
+    .nav-bar-date {
+      color: black;
+      position: relative;
+      left: -33%;
+      top: 5px;
+      font-size: 35px;
+      font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    }
   }

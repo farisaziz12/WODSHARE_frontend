@@ -1,0 +1,95 @@
+
+* {
+  box-sizing: border-box;
+}
+
+.athlete-container {
+  margin-top: 3%;
+  margin-left: 5%;
+  font-family: "Poppins", Arial, san-serif;
+  line-height: 1.4;
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+          align-items: center;
+  background-color: #f9f9f9;
+  height: 100%;
+  border-radius: 50%;
+}
+
+.athlete-card {
+  background: #fff url("https://storage.googleapis.com/chydlx/codepen/minimalist-profile-card/card-bg.jpg") top -20% center no-repeat;
+  background-size: contain;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px -5px rgba(60, 60, 60, 0.2);
+  text-align: center;
+  padding: 20px 20px;
+}
+.athlete-card img {
+  background-color: #dddfe6;
+  height: 120px;
+  width: 120px;
+  border-radius: 50%;
+  margin: auto auto 15px;
+  display: block;
+}
+.athlete-h1 {
+  font-size: 22px;
+  margin: 10px auto 0;
+  letter-spacing: 1px;
+  color: black;
+}
+.athlete-card h2 {
+  margin: auto;
+  color: #b1b6c6;
+  font-weight: 300;
+  font-size: 14px;
+}
+.athlete-card .athlete-button {
+  display: block;
+  text-decoration: none;
+  background: #3b70fc;
+  color: #f9f9f9;
+  padding: 12px;
+  border: none;
+  border-radius: 25px;
+  margin-top: 30px;
+  font-size: 16px;
+  font-weight: 700;
+  min-width: 200px;
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
+}
+.athlete-card .athlete-button span {
+  font-size: 20px;
+  line-height: 1;
+  vertical-align: top;
+}
+.athlete-card .athlete-button:hover {
+  background: #1856fb;
+}
+.athlete-card .athlete-button-2 {
+  display: block;
+  text-decoration: none;
+  background: #fc3b3b;
+  color: #f9f9f9;
+  padding: 12px;
+  border: none;
+  border-radius: 25px;
+  margin-top: 30px;
+  font-size: 16px;
+  font-weight: 700;
+  min-width: 200px;
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
+}
+.athlete-card .athlete-button-2 span {
+  font-size: 20px;
+  line-height: 1;
+  vertical-align: top;
+}
+.athlete-card .athlete-button-2:hover {
+  background: hsl(7, 74%, 49%);
+}

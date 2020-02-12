@@ -13,6 +13,7 @@ import CoachProfile from './CoachComponents.js/CoachProfile.js';
 import AthleteShowPage from './CoachComponents.js/AthleteShowPage.js';
 import Error404 from './MainComponents/Error404.js';
 import WODGenerator from './AthleteComponents.js/WODGenerator.js';
+import './MainComponents/Homepage.css'
 
 
 class App extends React.Component {
@@ -71,6 +72,7 @@ class App extends React.Component {
           }
           {this.state.homepage === "athlete"?
            <AthleteHompage user={this.state.user}/>
+
            :
            undefined
           }
@@ -81,6 +83,7 @@ class App extends React.Component {
           }
         </Route>
         <Route exact path = '/login'>
+        <Navbar logout={this.logout} user={this.state.user}/>
             <LoginForm onSuccess={this.setUser} setError = {this.state.loginError} handleLogin = {this.setUser} user = {this.state.user}/>
         </Route>
         <Route exact path = '/movements'>

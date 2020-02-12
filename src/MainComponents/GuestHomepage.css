@@ -1,0 +1,384 @@
+@supports (display: grid) {
+
+    .grid {
+      display: grid;
+      grid-gap: 1.5vw;
+      min-height: 100vh;
+      padding: 1.5vw;
+    }
+  
+    .grid {
+      grid-template-columns: repeat(2, 1fr);
+      grid-template-rows: 50vh 30vh repeat(7, minmax(20vh, 1fr));
+      grid-template-areas:
+        "hero   hero"
+        "big1   big1"
+        "med1   med1"
+        "med2   med2"
+        "small1 small2"
+        "small3 small4"
+        "small5 small6"
+        "small7 small8"
+        "small9 small10";
+    }
+  
+    @media screen and (min-width: 750px) {
+      .grid {
+        grid-template-columns: repeat(5, 1fr);
+        grid-template-rows: repeat(5, 25vh);
+        grid-template-areas:
+          "hero   hero   hero   med1   med1"
+          "hero   hero   hero   med2   med2"
+          "big1   big1   big1   big1   big1"
+          "small1 small2 small3 small4 small5"
+          "small6 small7 small8 small9 small10";
+      }
+    }
+  
+    @media screen and (min-width: 1400px) {
+      .grid {
+        grid-template-columns: repeat(6, 1fr);
+        grid-template-rows: auto;
+        grid-template-areas:
+        "small1 hero   hero hero med1   med1"
+        "small2 hero   hero hero med2   med2"
+        "small3 small5 big1 big1 small7 small8"
+        "small4 small6 big1 big1 small9 small10";
+      }
+    }
+  
+    .grid .item:nth-child(1)  { grid-area: hero; }
+    .grid .item:nth-child(2)  { grid-area: big1; }
+    .grid .item:nth-child(3)  { grid-area: med1; }
+    .grid .item:nth-child(4)  { grid-area: med2; }
+    .grid .item:nth-child(5)  { grid-area: small1; }
+    .grid .item:nth-child(6)  { grid-area: small2; }
+    .grid .item:nth-child(7)  { grid-area: small3; }
+    .grid .item:nth-child(8)  { grid-area: small4; }
+    .grid .item:nth-child(9)  { grid-area: small5; }
+    .grid .item:nth-child(10) { grid-area: small6; }
+    .grid .item:nth-child(11) { grid-area: small7; }
+    .grid .item:nth-child(12) { grid-area: small8; }
+    .grid .item:nth-child(13) { grid-area: small9; }
+    .grid .item:nth-child(14) { grid-area: small10; }
+  
+  }
+  
+  /* flexbox fallback is the browser does not support display:grid */
+  @supports not (display: grid) {
+  
+    .grid {
+      display: flex;
+      flex-flow: row wrap;
+      min-height: 100vh;
+      padding: 0.75vw;
+    }
+  
+    .grid .item {
+      min-height: 20vh;
+      margin: 0.75vw;
+    }
+  
+    .grid .item:nth-child(1)  { flex: 0 1 calc(100% - 1.5vw); height: 50vh; }
+    .grid .item:nth-child(2)  { flex: 0 1 calc(100% - 1.5vw); height: 30vh; }
+    .grid .item:nth-child(3)  { flex: 0 1 calc(100% - 1.5vw); }
+    .grid .item:nth-child(4)  { flex: 0 1 calc(100% - 1.5vw); }
+    .grid .item:nth-child(5)  { flex: 0 1 calc(50% - 1.5vw); }
+    .grid .item:nth-child(6)  { flex: 0 1 calc(50% - 1.5vw); }
+    .grid .item:nth-child(7)  { flex: 0 1 calc(50% - 1.5vw); }
+    .grid .item:nth-child(8)  { flex: 0 1 calc(50% - 1.5vw); }
+    .grid .item:nth-child(9)  { flex: 0 1 calc(50% - 1.5vw); }
+    .grid .item:nth-child(10) { flex: 0 1 calc(50% - 1.5vw); }
+    .grid .item:nth-child(11) { flex: 0 1 calc(50% - 1.5vw); }
+    .grid .item:nth-child(12) { flex: 0 1 calc(50% - 1.5vw); }
+    .grid .item:nth-child(13) { flex: 0 1 calc(50% - 1.5vw); }
+    .grid .item:nth-child(14) { flex: 0 1 calc(50% - 1.5vw); }
+  
+    @media screen and (min-width: 750px) {
+      .grid .item:nth-child(1)  { flex: 0 1 calc(60% - 1.5vw); }
+      .grid .item:nth-child(2)  { flex: 0 1 calc(40% - 1.5vw); height: 50vh; }
+    }
+  
+    @media screen and (min-width: 1400px) {
+      .grid .item:nth-child(1)  { flex: 0 1 calc(60% - 1.5vw); }
+      .grid .item:nth-child(2)  { flex: 0 1 calc(40% - 1.5vw); }
+      .grid .item:nth-child(3)  { flex: 0 1 calc(50% - 1.5vw); }
+      .grid .item:nth-child(4)  { flex: 0 1 calc(50% - 1.5vw); }
+      .grid .item:nth-child(5)  { flex: 0 1 calc(25% - 1.5vw); }
+      .grid .item:nth-child(6)  { flex: 0 1 calc(25% - 1.5vw); }
+      .grid .item:nth-child(7)  { flex: 0 1 calc(25% - 1.5vw); }
+      .grid .item:nth-child(8)  { flex: 0 1 calc(25% - 1.5vw); }
+      .grid .item:nth-child(9)  { flex: 0 1 calc(25% - 1.5vw); }
+      .grid .item:nth-child(10) { flex: 0 1 calc(25% - 1.5vw); }
+      .grid .item:nth-child(11) { flex: 0 1 calc(25% - 1.5vw); }
+      .grid .item:nth-child(12) { flex: 0 1 calc(25% - 1.5vw); }
+      .grid .item:nth-child(13) { flex: 0 1 calc(25% - 1.5vw); }
+      .grid .item:nth-child(14) { flex: 0 1 calc(25% - 1.5vw); }
+    }
+  
+  }
+  
+  /* Styles, just for fun */
+  
+  *,*:before,*:after {
+    box-sizing: border-box;
+  }
+  
+  body {
+    margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    background: #29343d;
+  }
+  
+  @supports not (display: grid) {
+    body:before {
+      content: 'Sorry, seems like your browser doesn\'t support display: grid. Below is the flexbox fallback.';
+      display: block;
+      padding: 2rem 2rem 0;
+      color: #ffffff;
+      text-align: center;
+    }
+  }
+  
+  .header {
+    margin: 10vh 1.5vw;
+    text-align: center;
+    color: #cedfe9;
+  }
+  
+  .header h1,
+  .header h2 {
+    margin: 0;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    line-height: 1;
+  }
+  
+  .header h1 {
+    position: relative;
+    padding-bottom: 0.5em;
+    color: #ffffff;
+    font-size: 2rem;
+  }
+  
+  .header h2 {
+    font-weight: normal;
+    font-size: 0.875rem;
+  }
+  
+  @media screen and (min-width: 750px) {
+  
+    .header h1 {
+      font-size: 3.75rem;
+    }
+  
+    .header h2 {
+      font-weight: normal;
+      font-size: 1.125rem;
+      letter-spacing: 0.5em;
+    }
+  }
+  
+  @media screen and (min-width: 1400px) {
+  
+    .header h1 {
+      font-size: 6rem;
+    }
+  
+    .header h2 {
+      font-weight: normal;
+      font-size: 1.5rem;
+    }
+  }
+  
+  .box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+  }
+  
+  .diamond {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    z-index: 2;
+    width: 50px;
+    height: 50px;
+    border-radius: 5px;
+    border: 1px solid #ffffff;
+    box-shadow: 1px 1px 0px rgba(0,0,0,0.2);
+    background-image: linear-gradient(to top left, #ddd 0%, #fff 100%);
+    text-align: center;
+    transform-origin: center;
+    transform: rotateZ(45deg);
+    transition: box-shadow 250ms, transform 250ms;
+  }
+  
+  .diamond span {
+    font-weight: bold;
+    transform: rotateZ(-45deg)
+  }
+  
+  .grid .item:hover .diamond,
+  .grid .item:focus .diamond {
+    box-shadow: 2px 2px 2px rgba(0,0,0,0.2);
+    transform:  rotateZ(45deg) scale(1.2);
+  }
+  
+  .tooltip {
+    position: absolute;
+    z-index: 1;
+    padding: 0.25rem 1rem;
+    border-radius: 5px;
+    background: #29343d;
+    opacity: 0;
+    color: #cedfe9;
+    font-size: 0.875rem;
+    transition: opacity 500ms, transform 500ms;
+  }
+  
+  .tooltip:before {
+    content: '';
+    position: absolute;
+    top: -9px;
+    left: calc(50% - 10px);
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 10px solid #29343d;
+  }
+  
+  .grid .item:hover .tooltip,
+  .grid .item:focus .tooltip {
+    opacity: 1;
+    transform: translateY(70px);
+  }
+  
+  .grid .item {
+    position: relative;
+    padding: 1vw;
+    background-position:  left bottom;
+    background-size: 150% 100%;
+    transition: background 500ms, outline 500ms;
+    background-position: top left;
+    outline: transparent;
+  }
+  
+  .grid .item:hover,
+  .grid .item:focus {
+    background-position: top right;
+  }
+  
+  .grid .item:focus {
+    outline: 2px solid #3eabfa;
+  }
+  
+  .grid .item:nth-child(1)  { background-image: linear-gradient(45deg, #536976 0%, #373B44 60%); }
+  .grid .item:nth-child(2)  { background-image: linear-gradient(45deg, #606c88 0%, #3f4c6b 60%); background-image: url("https://www.perthfitfam.com.au/wp-content/uploads/2019/07/CrossFit-Games-Whats-New-in-2018.jpg"); height: 100%; width: 100%; background-size: cover}
+  .grid .item:nth-child(3)  { background-image: linear-gradient(45deg, #485563 0%, #29323c 60%); }
+  .grid .item:nth-child(4)  { background-image: linear-gradient(45deg, #232526 0%, #414345 60%); background-image: url("https://bloximages.chicago2.vip.townnews.com/madison.com/content/tncms/assets/v3/editorial/c/b2/cb24a8eb-3465-56db-9a51-ed30faca061d/5d435dffdb3ac.image.jpg?resize=1200%2C871"); height: 100%; width: 100%; background-size: cover}
+  .grid .item:nth-child(5) {background-image: url("https://ducfchamp.com/wp-content/uploads/2018/11/regionals1028-@jimwild-media-2303.jpg"); height: 100%; width: 100%; background-size: cover} 
+  .grid .item:nth-child(6) {background-image: url("https://i.cbc.ca/1.4772106.1533241552!/fileImage/httpImage/image.jpg_gen/derivatives/16x9_780/898430526.jpg"); height: 100%; width: 100%; background-size: cover} 
+  .grid .item:nth-child(7) {background-image: url("https://www.ausleisure.com.au/images/ausleisure/files/_news-main/CrossFit_games_2019.jpg"); height: 100%; width: 100%; background-size: cover} 
+  .grid .item:nth-child(8) {background-image: url("https://secure.i.telegraph.co.uk/multimedia/archive/02796/battle-london-1_2796294b.jpg"); height: 100%; width: 100%; background-size: cover} 
+  .grid .item:nth-child(9) {background-image: url("https://thebarbellspin.com/wp-content/uploads/2019/11/jacobmorris-2019crossfitgames-696x464.jpg"); height: 100%; width: 100%; background-size: cover} 
+  .grid .item:nth-child(10) {background-image: url("https://games-assets.crossfit.com/s3fs-public/styles/sizzle/public/Games%20Site%20Sizzle%20Queens.jpg?itok=-S36JJoe"); height: 100%; width: 100%; background-size: cover} 
+  .grid .item:nth-child(11) {background-image: url("https://www.nerdfitness.com/wp-content/uploads/2019/01/crossfit-deadlift-768x512.jpg"); height: 100%; width: 100%; background-size: cover} 
+  .grid .item:nth-child(12) {background-image: url("https://i0.wp.com/nickgrantham.com/wp-content/uploads/2015/02/crossfit-fuengirola-slide03.jpg?w=1600"); height: 100%; width: 100%; background-size: cover} 
+  .grid .item:nth-child(13) {background-image: url("https://sporttechie-prod.s3.amazonaws.com/2018/06/Samurai-Team-2018052609460613_SDW_SW1_1790.jpg"); height: 100%; width: 100%; background-size: cover} 
+  .grid .item:nth-child(14) { background-image: linear-gradient(45deg, #16222a 0%, #3a6073 60%); background-image: url("https://incheapside.com/wp-content/uploads/2018/11/WIT-Image.jpg"); height: 100%; width: 100%; background-size: cover}
+
+  
+
+  .loader4-movements, .loader4-movements div {
+  border-radius: 50%;
+  padding: 4px;
+  border: 8px solid transparent;
+  -webkit-animation: rotate linear 3.5s infinite;
+          animation: rotate linear 3.5s infinite;
+  border-radius: 50%;
+  padding: 4px;
+  -webkit-animation: rotate2 4s infinite linear;
+          animation: rotate2 4s infinite linear;
+}
+
+div:hover {
+  -webkit-animation-play-state: paused;
+          animation-play-state: paused;
+}
+
+.loader-movements, .loader-movements * {
+  will-change: transform;
+}
+
+.loader-movements div {
+  height: 50%;
+}
+
+@-webkit-keyframes rotate {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  50% {
+    -webkit-transform: rotate(180deg);
+            transform: rotate(180deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+@keyframes rotate {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  50% {
+    -webkit-transform: rotate(180deg);
+            transform: rotate(180deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+@-webkit-keyframes rotate2 {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+    border-top-color: rgba(0, 0, 0, 0.5);
+  }
+  50% {
+    -webkit-transform: rotate(180deg);
+            transform: rotate(180deg);
+    border-top-color: rgba(0, 0, 255, 0.5);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+    border-top-color: rgba(0, 0, 0, 0.5);
+  }
+}
+@keyframes rotate2 {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+    border-top-color: rgba(0, 0, 0, 0.5);
+  }
+  50% {
+    -webkit-transform: rotate(180deg);
+            transform: rotate(180deg);
+    border-top-color: rgba(0, 0, 255, 0.5);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+    border-top-color: rgba(0, 0, 0, 0.5);
+  }
+}
+
+  

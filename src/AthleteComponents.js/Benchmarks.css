@@ -23,13 +23,13 @@ img {
   font-size: large;
 }
 .benchmarks-card__caption {
-  background-color: rgba(255, 255, 255, 0.65);
+  background-color: rgba(65, 65, 65, 0.37);
   padding: 1em;
   position: relative;
   border-radius: 0 0 3px 3px;
 }
 .benchmarks-card__image-container {
-  background-color: rgba(0, 0, 0, 0.7);
+  background-color: rgba(110, 108, 108, 0.404);
   text-align: center;
   padding: 1em 1em 0;
   border-radius: 3px 3px 0 0;
@@ -71,7 +71,8 @@ img {
   font-family: "Open Sans Condensed", "Open Sans", helvetica, sans-serif;
   text-align: right;
   font-weight: 300;
-  background-color: darkblue;
+  background-color: black;
+  border-radius: 12%;
 }
 .benchmarks-card__stats th, .card__stats td {
   width: 50%;
@@ -88,9 +89,10 @@ img {
   -webkit-box-flex: 1;
           flex: 1 0;
 }
+/* #00416A, #E4E5E6 */
 
 .benchmarks-card--water {
-  background: linear-gradient(120deg, #1CB5E0 0%, #000851 100%);
+  background: linear-gradient(120deg, #00416A 0%, rgb(8, 12, 59) 100%);
   box-shadow: 0px 5px 20px -10px #000851;
 }
 .benchmarks-card--water .card__type {

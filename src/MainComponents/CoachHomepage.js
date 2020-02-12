@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import { Grid, Card } from 'semantic-ui-react'
 import AthleteCard from '../CoachComponents.js/AthleteCard';
 import AssignWorkoutForm from '../CoachComponents.js/AssignWorkoutForm';
+import './Homepage.css'
 
 
 
@@ -41,13 +42,13 @@ class CoachHompage extends Component {
     }
     render() {
         return (
-            <><br/><br/><br/><br/>
+            <>
+                <div className="wod-layout" name="wod-layout">
                 <h2 className="h2">Welcome Back {this.props.user.first_name}!</h2> <br/><br/>
-                <div name="wod-layout">
                 <Grid textAlign={"center"} columns={2} divided>
                     <Grid.Row>
                     <Grid.Column>
-                        <h1>Athletes</h1>
+                        <h1 className='text'>Athletes</h1>
                         <Card.Group centered={true}>
                             {this.state.athletes[0]? 
 
@@ -66,7 +67,7 @@ class CoachHompage extends Component {
                             <AssignWorkoutForm coachID={this.props.user.id} athleteName={this.state.athleteBeingProgrammedFor.first_name} athleteID={this.state.athleteBeingProgrammedFor.id}/>
                         }
                         {!this.state.athleteBeingProgrammedFor &&
-                            <h1>Select an Athlete to Program for</h1>
+                            <h1 className='text'>Select an Athlete to Program for</h1>
                         }
                     </Grid.Column>
                     </Grid.Row>

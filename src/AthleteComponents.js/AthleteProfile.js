@@ -8,7 +8,10 @@ import { Message } from 'semantic-ui-react'
 class AthleteProfile extends Component {
     state = { 
         displayForm: false, 
-        deleteSuccess: false
+        deleteSuccess: false,
+        coach: this.props.coach_name? true : false, 
+        removeMessage: false, 
+        connectSuccess: false
      }
 
 
@@ -25,57 +28,91 @@ class AthleteProfile extends Component {
         API.clearToken()
      }
 
+     deleteCoachConnection = () => {
+        fetch(`https://wodshare.herokuapp.com/athletes/removecoach/${this.props.id}`, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                "Accept": "application/json"
+            }
+        }).then(this.setState({coach: false, removeMessage: true})).then(setTimeout(() => {this.setState({removeMessage: false})}, 3000))
+     }
+
+     handleSuccess = () => { 
+         this.setState({connectSuccess: true, displayForm: false, coach: true})
+        setTimeout(() => {this.setState({connectSuccess: false})}, 3000)
+     }
+
     render() {
         return (
             <> <br/><br/>
-                <div class="wrapper">
+                <div className="wrapper">
 
   
-                <div class="profile-card js-profile-card">
-                <div class="profile-card__img">
+                <div className="profile-card js-profile-card">
+                <div className="profile-card__img">
                     <img src="https://external-content.duckduckgo.com/iu/?u=http%3A%2F%2Fwww.bluedroplearningnetworks.com%2FProfile-Pic-Placeholder.png&f=1&nofb=1" alt="profile card"/>
                 </div>
 
-                <div class="profile-card__cnt js-profile-cnt">
-                    <div class="profile-text profile-card__name">{this.props.first_name + " " + this.props.last_name}</div>
-                    <div class=" profile-text profile-card__txt"><strong>Email: </strong>{this.props.email}</div>
-                    <div class=" profile-text profile-card-loc">
+                <div className="profile-card__cnt js-profile-cnt">
+                    <div className="profile-text profile-card__name">{this.props.first_name + " " + this.props.last_name}</div>
+                    <div className=" profile-text profile-card__txt"><strong>Email: </strong>{this.props.email}</div>
+                    <div className=" profile-text profile-card-loc">
 
-                    <span class=" profile-text profile-card-loc__txt">
-                         {this.props.coach_name? "Coach: " + this.props.coach_name + " " + this.props.coach_last_name
+                    <span className=" profile-text profile-card-loc__txt">
+                         {this.props.coach_name && this.state.coach? "Coach: " + this.props.coach_name + " " + this.props.coach_last_name : undefined}
                         
-                        : 
+                        {!this.state.coach&&
                         
-                        <button onClick={this.handleShowForm} class="profile-card__button button--orange">Connect Coach</button>
+                        <button onClick={this.handleShowForm} className="profile-card__button button--orange">Connect Coach</button>
                         
-                        } 
+                        }
                     </span>
                     </div>
-
-                    {/* <div class="profile-card-inf">
-                    <div class="profile-card-inf__item">
-                        <div class="profile-card-inf__title profile-text">1598</div>
-                        <div class="profile-card-inf__txt profile-text">Followers</div>
-                    </div>
-
-                    <div class="profile-card-inf__item">
-                        <div class="profile-card-inf__title profile-text">65</div>
-                        <div class="profile-card-inf__txt profile-text">Following</div>
-                    </div>
-
-                    <div class="profile-card-inf__item">
-                        <div class="profile-card-inf__title profile-text">123</div>
-                        <div class="profile-card-inf__txt profile-text">Articles</div>
-                    </div>
-
-                    <div class="profile-card-inf__item">
-                        <div class="profile-card-inf__title profile-text">85</div>
-                        <div class="profile-card-inf__txt profile-text">Works</div>
+                    {this.state.coach&&
+                    <button onClick={this.deleteCoachConnection} className="profile-card__button button--orange">Disconnect Coach</button>
+                    }
+                    {this.state.removeMessage&&
+                    <Message
+                        success
+                        header='Coach Removed'
+                        content="You can now connect a new one!"
+                    />
+                    }
+                    {this.state.connectSuccess&&
+                    <Message
+                        success
+                        header='Coach Connected'
+                        content="Your coach can now see you and assign workouts!"
+                    />
+                    }
+                    {/* <div className="profile-card-inf">
+                    <div className="profile-card-inf__item">
+                        <div className="profile-card-inf__title profile-text">04.12.2000</div>
+                        <div className="profile-card-inf__txt profile-text">Date of Birth</div>
                     </div>
                     </div> */}
 
-                    <div class="profile-card-ctr">
-                    <button onClick={this.handleDelete} class="profile-card__button button--blue js-message-btn">Delete Account</button>
+                    
+{/* 
+                    <div className="profile-card-inf__item">
+                        <div className="profile-card-inf__title profile-text">65</div>
+                        <div className="profile-card-inf__txt profile-text">Following</div>
+                    </div>
+
+                    <div className="profile-card-inf__item">
+                        <div className="profile-card-inf__title profile-text">123</div>
+                        <div className="profile-card-inf__txt profile-text">Articles</div>
+                    </div>
+
+                    <div className="profile-card-inf__item">
+                        <div className="profile-card-inf__title profile-text">85</div>
+                        <div className="profile-card-inf__txt profile-text">Works</div>
+                    </div>
+                     } */}
+
+                    <div className="profile-card-ctr">
+                    <button onClick={this.handleDelete} className="profile-card__button button--blue js-message-btn">Delete Account</button>
                     </div>
                     {this.state.deleteSuccess&&
                     <Message
@@ -89,7 +126,7 @@ class AthleteProfile extends Component {
                 </div>
 
                 </div>
-                {this.state.displayForm? <PopUpCoachConnect athleteID={this.props.id} handleClick={this.handleShowForm} /> : undefined} 
+                {this.state.displayForm? <PopUpCoachConnect handleSuccess={this.handleSuccess} athleteID={this.props.id} handleClick={this.handleShowForm} /> : undefined} 
                 
             </>
         );

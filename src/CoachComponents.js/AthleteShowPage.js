@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Grid, Card } from 'semantic-ui-react'
 import WorkoutCard from './WorkoutCard';
 import EditWorkoutForm from './EditWorkoutForm';
+import './AthleteShowPage.css'
 
 
 class AthleteShowPage extends Component {
@@ -39,7 +40,7 @@ class AthleteShowPage extends Component {
 
     render() {
         return (
-            <> <br/><br/><br/>
+            <div className='showpage-body'> <br/><br/><br/>
                 <h1 className='h2'>{this.props.first_name + " " + this.props.last_name}</h1> <br/><br/>
                     <div name="wod-layout">
                     <Grid textAlign={"center"} columns={2} divided>
@@ -69,7 +70,7 @@ class AthleteShowPage extends Component {
                         </Grid.Row>
                     </Grid>
                 </div>
-            </>
+            </div>
         );
     }
 }
