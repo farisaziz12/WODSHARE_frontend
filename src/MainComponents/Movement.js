@@ -15,7 +15,7 @@ class Movement extends Component {
         const  { name, skill_level, category } = this.props
         return (
             <>
-            <div onClick={this.handleClick} class="movement-container">
+            <div onClick={this.handleClick} className="movement-container">
                 <div class={this.state.cardClass}>
                     <div class="front">{name}</div>
                     <div class="back">
