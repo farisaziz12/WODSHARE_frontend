@@ -277,16 +277,108 @@
   }
   
   .grid .item:nth-child(1)  { background-image: linear-gradient(45deg, #536976 0%, #373B44 60%); }
-  .grid .item:nth-child(2)  { background-image: linear-gradient(45deg, #606c88 0%, #3f4c6b 60%); }
+  .grid .item:nth-child(2)  { background-image: linear-gradient(45deg, #606c88 0%, #3f4c6b 60%); background-image: url("https://www.perthfitfam.com.au/wp-content/uploads/2019/07/CrossFit-Games-Whats-New-in-2018.jpg"); height: 100%; width: 100%; background-size: cover}
   .grid .item:nth-child(3)  { background-image: linear-gradient(45deg, #485563 0%, #29323c 60%); }
-  .grid .item:nth-child(4)  { background-image: linear-gradient(45deg, #232526 0%, #414345 60%); }
-  .grid .item:nth-child(5),
-  .grid .item:nth-child(6),
-  .grid .item:nth-child(7),
-  .grid .item:nth-child(8),
-  .grid .item:nth-child(9),
-  .grid .item:nth-child(10),
-  .grid .item:nth-child(11),
-  .grid .item:nth-child(12),
-  .grid .item:nth-child(13),
-  .grid .item:nth-child(14) { background-image: linear-gradient(45deg, #16222a 0%, #3a6073 60%); }
+  .grid .item:nth-child(4)  { background-image: linear-gradient(45deg, #232526 0%, #414345 60%); background-image: url("https://bloximages.chicago2.vip.townnews.com/madison.com/content/tncms/assets/v3/editorial/c/b2/cb24a8eb-3465-56db-9a51-ed30faca061d/5d435dffdb3ac.image.jpg?resize=1200%2C871"); height: 100%; width: 100%; background-size: cover}
+  .grid .item:nth-child(5) {background-image: url("https://ducfchamp.com/wp-content/uploads/2018/11/regionals1028-@jimwild-media-2303.jpg"); height: 100%; width: 100%; background-size: cover} 
+  .grid .item:nth-child(6) {background-image: url("https://i.cbc.ca/1.4772106.1533241552!/fileImage/httpImage/image.jpg_gen/derivatives/16x9_780/898430526.jpg"); height: 100%; width: 100%; background-size: cover} 
+  .grid .item:nth-child(7) {background-image: url("https://www.ausleisure.com.au/images/ausleisure/files/_news-main/CrossFit_games_2019.jpg"); height: 100%; width: 100%; background-size: cover} 
+  .grid .item:nth-child(8) {background-image: url("https://secure.i.telegraph.co.uk/multimedia/archive/02796/battle-london-1_2796294b.jpg"); height: 100%; width: 100%; background-size: cover} 
+  .grid .item:nth-child(9) {background-image: url("https://thebarbellspin.com/wp-content/uploads/2019/11/jacobmorris-2019crossfitgames-696x464.jpg"); height: 100%; width: 100%; background-size: cover} 
+  .grid .item:nth-child(10) {background-image: url("https://games-assets.crossfit.com/s3fs-public/styles/sizzle/public/Games%20Site%20Sizzle%20Queens.jpg?itok=-S36JJoe"); height: 100%; width: 100%; background-size: cover} 
+  .grid .item:nth-child(11) {background-image: url("https://www.nerdfitness.com/wp-content/uploads/2019/01/crossfit-deadlift-768x512.jpg"); height: 100%; width: 100%; background-size: cover} 
+  .grid .item:nth-child(12) {background-image: url("https://i0.wp.com/nickgrantham.com/wp-content/uploads/2015/02/crossfit-fuengirola-slide03.jpg?w=1600"); height: 100%; width: 100%; background-size: cover} 
+  .grid .item:nth-child(13) {background-image: url("https://sporttechie-prod.s3.amazonaws.com/2018/06/Samurai-Team-2018052609460613_SDW_SW1_1790.jpg"); height: 100%; width: 100%; background-size: cover} 
+  .grid .item:nth-child(14) { background-image: linear-gradient(45deg, #16222a 0%, #3a6073 60%); background-image: url("https://incheapside.com/wp-content/uploads/2018/11/WIT-Image.jpg"); height: 100%; width: 100%; background-size: cover}
+
+  
+
+  .loader4-movements, .loader4-movements div {
+  border-radius: 50%;
+  padding: 4px;
+  border: 8px solid transparent;
+  -webkit-animation: rotate linear 3.5s infinite;
+          animation: rotate linear 3.5s infinite;
+  border-radius: 50%;
+  padding: 4px;
+  -webkit-animation: rotate2 4s infinite linear;
+          animation: rotate2 4s infinite linear;
+}
+
+div:hover {
+  -webkit-animation-play-state: paused;
+          animation-play-state: paused;
+}
+
+.loader-movements, .loader-movements * {
+  will-change: transform;
+}
+
+.loader-movements div {
+  height: 50%;
+}
+
+@-webkit-keyframes rotate {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  50% {
+    -webkit-transform: rotate(180deg);
+            transform: rotate(180deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+@keyframes rotate {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  50% {
+    -webkit-transform: rotate(180deg);
+            transform: rotate(180deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+@-webkit-keyframes rotate2 {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+    border-top-color: rgba(0, 0, 0, 0.5);
+  }
+  50% {
+    -webkit-transform: rotate(180deg);
+            transform: rotate(180deg);
+    border-top-color: rgba(0, 0, 255, 0.5);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+    border-top-color: rgba(0, 0, 0, 0.5);
+  }
+}
+@keyframes rotate2 {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+    border-top-color: rgba(0, 0, 0, 0.5);
+  }
+  50% {
+    -webkit-transform: rotate(180deg);
+            transform: rotate(180deg);
+    border-top-color: rgba(0, 0, 255, 0.5);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+    border-top-color: rgba(0, 0, 0, 0.5);
+  }
+}
+
+  

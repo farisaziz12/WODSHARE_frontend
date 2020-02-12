@@ -5,17 +5,17 @@ import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
 
 class AthleteCard extends Component {
 
-    DOB = (user) => {
-        let dob = '19800810';
-        let year = Number(dob.substr(0, 4));
-        let month = Number(dob.substr(4, 2)) - 1;
-        let day = Number(dob.substr(6, 2));
-        let today = new Date();
-        let age = today.getFullYear() - year;
-        if (today.getMonth() < month || (today.getMonth() == month && today.getDate() < day)) {
-        age--;
-        }
-    }
+    // DOB = (user) => {
+    //     let dob = '19800810';
+    //     let year = Number(dob.substr(0, 4));
+    //     let month = Number(dob.substr(4, 2)) - 1;
+    //     let day = Number(dob.substr(6, 2));
+    //     let today = new Date();
+    //     let age = today.getFullYear() - year;
+    //     if (today.getMonth() < month || (today.getMonth() == month && today.getDate() < day)) {
+    //     age--;
+    //     }
+    // }
     render() {
         const { first_name, last_name, id, email } = this.props
         return (
