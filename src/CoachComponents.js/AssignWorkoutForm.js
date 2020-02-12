@@ -59,13 +59,13 @@ class AssignWorkoutForm extends Component {
             <>
             <h1>Assign {this.props.athleteName} a Workout</h1>
                 <div class="blackboard">
-                        <div class="form">
-                                <p>
-                                        <label>Name: </label>
-                                        <input placeholder="Fran" type = "text" name = "name" value = {name} onChange = {this.handleChange}></input>
+                        <div class="workout-form">
+                                <p className='p'>
+                                        <label className='label' >Name: </label>
+                                        <input className='input' placeholder="Fran" type = "text" name = "name" value = {name} onChange = {this.handleChange}></input>
                                 </p>
-                                <p>
-                                        <label>Category: </label>
+                                <p className='p'>
+                                        <label className='label' >Category: </label>
                                         <select className="select-txt" onChange={this.handleCategoryChange} placeholder='Gymnastics' id="category" name="category" form="category">
                                             <option value="Gymnastics">Gymnastics</option>
                                             <option value="Metabolic Conditioning">Metabolic Conditioning</option>
@@ -74,8 +74,8 @@ class AssignWorkoutForm extends Component {
                                             <option value="Strength">Strength</option>
                                         </select>
                                 </p>
-                                <p>
-                                        <label>Type: </label>
+                                <p className='p'>
+                                        <label className='label' >Type: </label>
                                         <select className="select-txt" onChange={this.handleTypeChange} placeholder='Couplet' id="type" name="type" form="type">
                                             <option value="Couplet">Couplet</option>
                                             <option value="Triplet">Triplet</option>
@@ -84,16 +84,16 @@ class AssignWorkoutForm extends Component {
                                             <option value="Muscular Endurance">Muscular Endurance</option>
                                         </select>
                                 </p>
-                                <p>
-                                        <label>Date: </label>
-                                        <input onChange = {this.handleChange} name='date' type="date" />
+                                <p className='p'>
+                                        <label className='label' >Date: </label>
+                                        <input className='input' onChange = {this.handleChange} name='date' type="date" />
                                 </p>
-                                <p>
-                                        <label>Workout: </label>
-                                        <textarea name='workout' onChange = {this.handleChange}></textarea>
+                                <p className='p'>
+                                        <label className='label' >Workout: </label>
+                                        <textarea className='textarea' name='workout' onChange = {this.handleChange}></textarea>
                                 </p>
                                 <p class="wipeout">
-                                        <input onClick={this.handleSubmit} type="submit" value="Create Workout ->" />
+                                        <input className='input' onClick={this.handleSubmit} type="submit" value="Create Workout ->" />
                                 </p>
                         </div>
                 </div>
