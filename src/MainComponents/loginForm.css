@@ -15,6 +15,23 @@
     margin: -40px 6px 50px;
     height: 100vh;
 }
+@media (min-width: 2000px) { 
+    .login-body {
+        display: absolute;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        font-family: 'Montserrat', sans-serif;
+        /* background: linear-gradient(45deg, #00416A, #E4E5E6); */
+        margin-top: -8%;
+        height: 120vh;
+    }
+
+    .login-form-spacing {
+        margin-left: 17%;
+        margin-top: 5%;
+    }
+}
 
 .login-h1 {
 	font-weight: bold;

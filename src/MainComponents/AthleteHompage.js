@@ -64,7 +64,7 @@ class AthleteHompage extends Component {
                         
                     <Grid.Column>
                     <br/><br/><h1 className='text'>Previous Workouts</h1>
-                        <h2>{workouts[1]? undefined : "None"}</h2>
+                        <h2>{PrevWODS? undefined : "None"}</h2>
                         <Grid columns={5} divided >
                             <Grid.Row>
                                 {PrevWODS[0]&& PrevWODS.reverse().map(workout => (

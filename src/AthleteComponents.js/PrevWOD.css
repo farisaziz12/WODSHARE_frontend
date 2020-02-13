@@ -67,3 +67,12 @@ body {
   }
   
   
+  @media (min-width: 2000px) { 
+    .prevwod-card-content {
+      text-align: center;
+      top: 120px;
+      right: -36px;
+      position: relative;
+      
+  }
+}

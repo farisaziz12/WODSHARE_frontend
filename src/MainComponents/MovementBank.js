@@ -28,7 +28,7 @@ class MovementBank extends Component {
         }
         const movements = this.state.search !== "" ? this.state.movements.filter(movement => movement.name.includes(this.state.search.capitalize())) : this.state.movements
         return (
-            <div className='body'> <br/>
+            <div className='background-2'> <br/>
             
             {/* {this.state.loading&&
                 <div class='loader loader4'>

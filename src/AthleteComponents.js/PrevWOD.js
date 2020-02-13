@@ -13,11 +13,11 @@ class PrevWOD extends Component {
                     <h2 className="prevwod-title">"{name}"</h2>
                     <h3 className="prevwod-date"><i>{cfFormatDate}</i></h3>
                     <div className="prevwod-bar">
-                    <h4 className="card-content">Score: {score}</h4>
-                    <h3 className="card-content">Category: {category}</h3>
-                    <h3 className="card-content">Workout: </h3>
+                    <h3 className="prevwod-card-content">Score: {score}</h3>
+                    <h2 className="prevwod-card-content">Category: {category}</h2>
+                    <h2 className="prevwod-card-content">Workout: </h2>
                     {workout.split('\n').map(element => {
-                        return <h4 className="card-content">{element}</h4>
+                        return <h4 className="prevwod-card-content">{element}</h4>
                     })}
                     </div>
                 </div>
