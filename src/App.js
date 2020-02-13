@@ -72,7 +72,6 @@ class App extends React.Component {
           }
           {this.state.homepage === "athlete"?
            <AthleteHompage user={this.state.user}/>
-
            :
            undefined
           }

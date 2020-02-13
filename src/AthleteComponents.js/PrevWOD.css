@@ -59,10 +59,10 @@ body {
     top: 20px;
   }
 
-  .card-content {
+  .prevwod-card-content {
       text-align: center;
-      top: 120px;
-      right: -26px;
+      top: 125px;
+      right: -46px;
       position: relative;
   }
   
