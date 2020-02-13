@@ -30,35 +30,15 @@ class MovementBank extends Component {
         return (
             <div className='background-2'> <br/>
             
-            {/* {this.state.loading&&
-                <div class='loader loader4'>
-                <div>
-                  <div>
-                    <div>
-                      <div>
-                        <div>
-                          <div>
-                            <div>
-                              <div>
-                                <div>
-                                  <div></div>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            } */}
             <div className='search-bar'> 
                 {!this.state.loading?<h1 className='title'>Movement Bank</h1> : undefined}
                 {!this.state.loading? <Search onSearchChange={this.handleSearchChange} showNoResults={false}/>  : undefined}
             </div>
             <div className="movements-container">
-            {!this.state.load4ing &&
+            {this.state.loading&&
+                <div class="lds-circle"><div></div></div>
+            }
+            {!this.state.loading &&
                 <> 
                     {movements.map(movement => (
                         <Movement {...movement}/>

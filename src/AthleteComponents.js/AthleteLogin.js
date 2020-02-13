@@ -90,7 +90,7 @@ class AthleteLogin extends Component {
                         <h1 className='login-h1'>Sign in</h1>
                         <input onChange={this.handleChange} name="loginEmail" className='login-input' type="email" placeholder="Email" />
                         <input onChange={this.handleChange} name="loginPassword" className='login-input' type="password" placeholder="Password" /> <br/>
-                        <a className='login-a' href="#">Forgot your password?</a> <br/>
+                        <a className='login-a' href="null">Forgot your password?</a> <br/>
                         <button className='login-button'>Sign In</button>
                     </form>
                 </div>

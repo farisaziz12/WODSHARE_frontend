@@ -14,6 +14,8 @@ import AthleteShowPage from './CoachComponents.js/AthleteShowPage.js';
 import Error404 from './MainComponents/Error404.js';
 import WODGenerator from './AthleteComponents.js/WODGenerator.js';
 import './MainComponents/Homepage.css'
+import MobileNavbar from './MobileComponents/MobileNavbar.js';
+import MobileCoachHomepage from './MobileComponents/MobileCoachHomepage.js';
 
 
 class App extends React.Component {
@@ -24,8 +26,17 @@ class App extends React.Component {
     homepage: "guest",
     coach: {
       showAthlete: null
-    }
+    },
+    width: window.innerWidth
   }
+
+  componentWillMount() {
+    window.addEventListener('resize', this.handleWindowSizeChange);
+  }
+
+  handleWindowSizeChange = () => {
+    this.setState({ width: window.innerWidth });
+  };
 
   componentDidMount(){
     if (API.hasToken()) {
@@ -60,13 +71,16 @@ class App extends React.Component {
 
 
   render(){
+    const { width } = this.state;
+    const isMobile = width <= 500;
     return (
       <div className='background'>
       <Switch>
         <Route exact path = '/'> 
           <Navbar logout={this.logout} user={this.state.user}/>
+          {isMobile&& <MobileNavbar logout={this.logout} user={this.state.user}/>}
           {this.state.homepage === "guest"?
-           <GuestHompage/>
+           <GuestHompage isMobile={isMobile}/>
            :
            undefined
           }
@@ -76,13 +90,14 @@ class App extends React.Component {
            undefined
           }
           {this.state.homepage === "coach"?
-           <CoachHompage handleShowAthlete={this.handleShowAthlete} user={this.state.user}/>
+           isMobile? <MobileCoachHomepage handleShowAthlete={this.handleShowAthlete} user={this.state.user}/> : <CoachHompage handleShowAthlete={this.handleShowAthlete} user={this.state.user}/>
            :
            undefined
           }
         </Route>
         <Route exact path = '/login'>
         <Navbar logout={this.logout} user={this.state.user}/>
+        {isMobile&& <MobileNavbar logout={this.logout} user={this.state.user}/>}
             <LoginForm onSuccess={this.setUser} setError = {this.state.loginError} handleLogin = {this.setUser} user = {this.state.user}/>
         </Route>
         <Route exact path = '/movements'>

@@ -67,18 +67,18 @@ function deleteAthleteAccount(athleteID) {
 }
 
 
-function createObj(obj) {
+// function createObj(obj) {
 
-    return {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json",
-            "Accept": "application/json",
-            "Authorisation": localStorage.token
-        },
-        body: JSON.stringify(obj)
-    }
-}
+//     return {
+//         method: "POST",
+//         headers: {
+//             "Content-Type": "application/json",
+//             "Accept": "application/json",
+//             "Authorisation": localStorage.token
+//         },
+//         body: JSON.stringify(obj)
+//     }
+// }
 
 function JSONresp(resp) {
     if (resp.ok) return resp.json();

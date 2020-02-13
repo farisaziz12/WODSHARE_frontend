@@ -1,0 +1,30 @@
+.background {
+    margin-top: 6.9vh;
+    min-height: 100vh;
+    width: 100%;
+    display: inline-block;
+    font-family: 'Quicksand', sans-serif;
+}
+.guest-layout {
+    margin-top: 7.0vh;
+    /* height: 100vh; */
+}
+
+.text {
+  font-family: 'Quicksand', sans-serif;
+}
+
+
+  
+  .h2 {
+    text-align: center;
+    width: 100%;
+    margin: 0px auto;
+    color: #ffffff;
+    font-size: 50px;
+    font-family: 'Quicksand', sans-serif;
+    letter-spacing: 5px;
+    top: 50%;
+    position: top;
+  }
+  
