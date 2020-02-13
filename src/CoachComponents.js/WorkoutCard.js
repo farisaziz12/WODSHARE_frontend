@@ -4,13 +4,7 @@ import './WorkoutCard.css'
 
 
 class WorkoutCard extends Component {
-    state = {
-        cardClass: "movement-card"
-    }
-
-    handleClick = () => {
-        this.setState({cardClass: this.state.cardClass === "movement-card"? "movement-card flipped" : "movement-card"})
-    }
+    state = {  }
 
     handleDelete = () => {
          fetch(`https://wodshare.herokuapp.com/workouts/delete/${this.props.id}`, {
@@ -29,7 +23,8 @@ class WorkoutCard extends Component {
                     <h4 className="card-content">Score: {score}</h4>
                     <h3 className="card-content">Category: {category}</h3>
                     {/* <h4 className="card-content">Workout: </h4> */}
-                    {workout.split('\n').map(element => {
+                    {workout&&
+                    workout.split('\n').map(element => {
                         return <h5 className="card-content wod-text">{element}</h5>
                     })}
                     <div className='wod-buttons'>

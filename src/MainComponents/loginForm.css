@@ -11,8 +11,8 @@
 	align-items: center;
 	flex-direction: column;
     font-family: 'Montserrat', sans-serif;
-    background: linear-gradient(45deg, #00416A, #E4E5E6);
-    /* margin: -20px 0 50px; */
+    /* background: linear-gradient(45deg, #00416A, #E4E5E6); */
+    margin: -40px 6px 50px;
     height: 100vh;
 }
 

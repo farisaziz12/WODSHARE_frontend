@@ -2,6 +2,7 @@
   text-align: center;
 }
 
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;
@@ -22,6 +23,11 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
+}
+
+.background {
+  background: linear-gradient(45deg, #00416A, #E4E5E6);
+  height: 100vh;
 }
 
 .App-link {
