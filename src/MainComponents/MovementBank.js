@@ -30,7 +30,7 @@ class MovementBank extends Component {
         return (
             <div className='body'> <br/>
             
-            {this.state.loading&&
+            {/* {this.state.loading&&
                 <div class='loader loader4'>
                 <div>
                   <div>
@@ -52,7 +52,7 @@ class MovementBank extends Component {
                   </div>
                 </div>
               </div>
-            }
+            } */}
             <div className='search-bar'> 
                 {!this.state.loading?<h1 className='title'>Movement Bank</h1> : undefined}
                 {!this.state.loading? <Search onSearchChange={this.handleSearchChange} showNoResults={false}/>  : undefined}

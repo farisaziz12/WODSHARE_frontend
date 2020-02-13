@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import {  Grid, Form, Message, Select, Button} from 'semantic-ui-react'
+import './AssignWorkout.css'
 
 class EditWorkoutForm extends Component {
     state = { 
@@ -58,7 +59,7 @@ class EditWorkoutForm extends Component {
                         <div class="form">
                                 <p>
                                         <label>Name: </label>
-                                        <input placeholder="Fran" type = "text" name = "name" value = {name} onChange = {this.handleChange}></input>
+                                        <input className='input' placeholder="Fran" type = "text" name = "name" value = {name} onChange = {this.handleChange}></input>
                                 </p>
                                 <p>
                                         <label>Category: </label>
@@ -82,14 +83,14 @@ class EditWorkoutForm extends Component {
                                 </p>
                                 <p>
                                         <label>Date: </label>
-                                        <input onChange = {this.handleChange} value={date} name='date' type="date" />
+                                        <input className='input' onChange = {this.handleChange} value={date} name='date' type="date" />
                                 </p>
                                 <p>
                                         <label>Workout: </label>
-                                        <textarea name='workout' value={workout} onChange = {this.handleChange}></textarea>
+                                        <textarea className='textarea' name='workout' value={workout} onChange = {this.handleChange}></textarea>
                                 </p>
                                 <p class="wipeout">
-                                        <input onClick={this.handleSubmit} type="submit" value="Edit Workout ->" />
+                                        <input className='input' onClick={this.handleSubmit} type="submit" value="Edit Workout ->" />
                                 </p>
                         </div>
                 </div>

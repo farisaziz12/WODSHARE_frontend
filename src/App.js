@@ -61,7 +61,7 @@ class App extends React.Component {
 
   render(){
     return (
-      <>
+      <div className='background'>
       <Switch>
         <Route exact path = '/'> 
           <Navbar logout={this.logout} user={this.state.user}/>
@@ -122,7 +122,7 @@ class App extends React.Component {
             <Error404/>
         </Route>
       </Switch>
-      </>
+      </div>
     );
   }
 }

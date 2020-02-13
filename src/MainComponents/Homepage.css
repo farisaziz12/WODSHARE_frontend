@@ -1,18 +1,16 @@
 
 
 
-.wod-layout {
+.background {
     margin-top: 6.9vh;
-    background: linear-gradient(45deg, #00416A, #E4E5E6);
-    height: 175vh;
+    height: 100%;
     width: 100%;
     display: inline-block;
     font-family: 'Quicksand', sans-serif;
   }
 .guest-layout {
     margin-top: 7.0vh;
-    background: linear-gradient(45deg, #00416A, #E4E5E6);
-    height: 100vh;
+    /* height: 100vh; */
 }
 
 .text {

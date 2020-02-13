@@ -42,7 +42,7 @@ class AthleteHompage extends Component {
 
         return (
             <>
-                <div className="wod-layout" name="wod-layout">
+                <div className="background" name="wod-layout">
                 <h2 className="h2">Welcome Back {first_name}!</h2> <br/><br/>
                 <Grid textAlign={"center"} columns={2} divided>
                     <Grid.Row>
