@@ -65,7 +65,7 @@ body {
   .card-content {
       text-align: center;
       top: 80px;
-      /* right: -45px; */
+      right: -30px;
       position: relative;
       font-size: 15px;
   }
@@ -74,7 +74,78 @@ body {
   }
   
   .wod-buttons{
-      margin-top: 90%;
-      position: absolute;
-      right: 13%;
+      /* margin-top: 90%; */
+      justify-content: bottom;
+      position: relative;
+      /* right: 13%; */
   }
+
+
+  @media (min-width: 2000px) {
+  .workout-card {
+    margin-top: 4%;
+    display: flex;
+    height: 380px;
+    width: 220px;
+    background-color: #17141d;
+    border-radius: 10px;
+    box-shadow: -1rem 0 3rem #000;
+    margin-left: -10px;
+    transition: 0.7s ease-out;
+    position: relative;
+    left: 0px;
+  }
+  
+  .workout-card:not(:first-child) {
+      margin-left: -100px;
+  }
+  
+  .workout-card:hover {
+    transform: translateX(-80px);
+    transition: 0.7s ease-out;
+  }
+  
+  .workout-card:hover ~ .card {
+    position: relative;
+    left: 50px;
+    transition: 0.4s ease-out;
+  }
+  
+  .workout-title {
+    color: white;
+    font-weight: 300;
+    position: absolute;
+    left: 20px;
+    top: 15px;
+    font-size: 20px;
+  }
+  
+  
+  .workout-date {
+    color: white;
+    font-weight: 300;
+    position: absolute;
+    left: 25px;
+    top: 20px;
+    font-size: 15px;
+  }
+
+  .card-content {
+      text-align: center;
+      top: 80px;
+      right: 0px;
+      position: relative;
+      font-size: 15px;
+  }
+  .wod-text {
+      font-size: 10px;
+  }
+  
+  .wod-buttons{
+      /* margin-top: 90%; */
+      justify-content: bottom;
+      position: relative;
+      /* right: 13%; */
+  }
+
+}

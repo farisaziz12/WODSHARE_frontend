@@ -25,9 +25,9 @@ class WorkoutCard extends Component {
                     {/* <h4 className="card-content">Workout: </h4> */}
                     {workout&&
                     workout.split('\n').map(element => {
-                        return <h5 className="card-content wod-text">{element}</h5>
+                        return <h5 className="card-content wod-buttons wod-text">{element}</h5>
                     })}
-                    <div className='wod-buttons'>
+                    <div className='card-content'>
                     <Button onClick={() => this.props.handleSelectWorkout(id)} basic color='green'>
                          Edit
                      </Button>
