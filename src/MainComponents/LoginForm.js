@@ -41,13 +41,14 @@ class LoginForm extends Component {
                 :
                 undefined
                 }
-                <div className='login-from-spacing'></div> <br/>
+                <div className='login-form-spacing'><br/>
                 {this.state.athleteLogin&&
                     <AthleteLogin onSuccess={this.props.onSuccess}/>
                 }
                 {this.state.coachLogin&&
                     <CoachLogin onSuccess={this.props.onSuccess}/>
                 }
+                </div> 
             </div>
         );
     }
