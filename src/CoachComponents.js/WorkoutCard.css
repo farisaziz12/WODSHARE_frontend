@@ -17,7 +17,7 @@ body {
   .workout-card {
     margin-top: 4%;
     display: flex;
-    height: 380px;
+    height: 420px;
     width: 220px;
     background-color: #17141d;
     border-radius: 10px;
@@ -65,7 +65,7 @@ body {
   .card-content {
       text-align: center;
       top: 80px;
-      right: -30px;
+      right: 0px;
       position: relative;
       font-size: 15px;
   }
