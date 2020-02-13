@@ -93,3 +93,21 @@
 .athlete-card .athlete-button-2:hover {
   background: hsl(7, 74%, 49%);
 }
+
+@media (max-width: 500px){
+    .athlete-container {
+        margin-top: 3%;
+        margin-left: 0%;
+        font-family: "Poppins", Arial, san-serif;
+        line-height: 1.4;
+        display: -webkit-box;
+        display: flex;
+        -webkit-box-pack: center;
+                justify-content: center;
+        -webkit-box-align: center;
+                align-items: center;
+        background-color: #f9f9f9;
+        height: 100%;
+        border-radius: 50%;
+      }
+}

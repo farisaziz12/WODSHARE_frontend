@@ -347,3 +347,35 @@ footer a {
     color: #3c97bf;
     text-decoration: none;
 }
+
+
+@media (max-width: 500px){
+    .login-body {
+        display: absolute;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        font-family: 'Montserrat', sans-serif;
+        /* background: linear-gradient(45deg, #00416A, #E4E5E6); */
+        margin-top: 10%;
+        height: 120vh;
+    }
+
+    .login-form-spacing {
+        margin-left: -30%;
+        margin-top: 5%;
+    }
+    .login-container {
+        margin-top: 13%;
+        margin-left: 22%;
+        background-color: #fff;
+        border-radius: 10px;
+          box-shadow: 0 14px 28px rgba(0,0,0,0.25), 
+                0 10px 10px rgba(0,0,0,0.22);
+        position: relative;
+        overflow: hidden;
+        width: 500px;
+        max-width: 80%;
+    }
+    
+}

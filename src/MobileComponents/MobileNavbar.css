@@ -1,0 +1,63 @@
+#site-navigation {
+  display: block;
+  background: rgb(100, 100, 100);
+  height: 48px;
+  margin-left: -10%;
+}
+ 
+#site-navigation #main-menu,
+#site-navigation > input {
+  display: none;
+}
+ 
+#site-navigation > label {
+  display: block;
+  font-size: 36px;
+  color: #fff;
+  position: absolute;
+  right: 20px;
+  width: 36px;
+  padding: 0;
+  cursor: pointer;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+ 
+#site-navigation > input:checked + #main-menu {
+  display: block;
+  clear: both;
+  top: 36px;
+  position: relative;
+  background: #000;
+  color: #fff;
+}
+ 
+#site-navigation ul li {
+  display: block;
+  padding: 12px 10px;
+}
+ 
+#site-navigation a {
+  text-decoration: none;
+  color: #fff;
+}
+ 
+@media only screen and (max-device-width: 768px) {
+  #site-navigation {
+    height: auto;
+    
+  }
+  #site-navigation #main-menu {
+    display: block;
+  }
+  #site-navigation > label {
+    display: none
+  }
+  #site-navigation ul li {
+    display: inline-block;
+  }
+}

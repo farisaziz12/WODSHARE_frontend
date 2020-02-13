@@ -18,6 +18,7 @@ class GuestHompage extends Component {
         const movementOfTheDay = this.state.movements[0]? this.state.movements[Math.floor(Math.random() * this.state.movements.length)] : undefined
         return (
             <div className='guest-layout'> 
+            {this.props.isMobile? <h2>WODSHARE</h2> : undefined}
                     <div class="grid ">
                     <div class="item" tabindex="1">
                         <div class="box">

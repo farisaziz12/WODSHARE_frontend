@@ -228,3 +228,8 @@ button {
       font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
     }
   }
+
+  @media (max-width: 500px){
+    
+    
+  }
