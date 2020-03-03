@@ -30,9 +30,10 @@ class AthleteHompage extends Component {
         const today = new Date();
         const date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
         const formatedDate = date.split("-")
-        const WODDatePT1 = parseInt(formatedDate[1]) < 10 ? formatedDate[0] + "-0" + formatedDate[1] : formatedDate[0] + "-" + formatedDate[1] 
-        const WODDatePT2 = formatedDate[2].length < 9 ?  "-" + formatedDate[2] :  "-0" + formatedDate[2]
+        const WODDatePT1 = parseInt(formatedDate[1]) < 10 ? formatedDate[0] + "-0" + formatedDate[1] : formatedDate[0] + "-" + formatedDate[1]
+        const WODDatePT2 = formatedDate[2].length >= 10 ?  "-" + formatedDate[2] :  "-0" + formatedDate[2]
         const WODDate = WODDatePT1 + WODDatePT2
+        console.log(WODDatePT1, WODDatePT2, WODDate)
 
         const workoutOfTheDay = workouts.find(workout => workout.date === WODDate)
         const PrevWODSSort = workouts.sort((a,b) => {return new Date(a.date) - new Date(b.date);}).filter(workout => new Date(workout.date) < new Date(WODDate))
